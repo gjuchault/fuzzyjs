@@ -5,12 +5,20 @@
 /*
 
 Usage :
-var arr = ['A sentence composed of multiple words', 'Set syntax Javscript'];
+> var arr = ['A sentence composed of multiple words', 'Set syntax Javscript'];
 > fuzzy(arr, 'scmw');
-> ["A <span>s</span>enten<span>c</span>e co<span>m</span>posed of multiple <span>w</span>ords"]
 
-> fuzzy(arr, 's');
-> ["A <span>s</span>entence composed of multiple words", "<span>S</span>et syntax Javscript"]
+['A <span>s</span>enten<span>c</span>e co<span>m</span>posed of multiple <span>w</span>ords']
+
+> fuzzy(arr, 'w', true);
+
+['A sentence composed of multiple words']
+
+> fuzzy(arr, 's', false, function (toHighlight) {
+    return '<i>' + toHighlight + '</i>';
+});
+
+['A <i>s</i>entence composed of multiple words', '<i>S</i>et syntax Javscript']
 */
 
 // Improved from Bulat Bochkariov's version (http://www.quora.com/Algorithms/How-is-the-fuzzy-search-algorithm-in-Sublime-Text-designed)
