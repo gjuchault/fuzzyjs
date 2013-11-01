@@ -13,13 +13,7 @@ Fuzzy.js is licensed under Apache 2 License.
 
 ['A <span>s</span>enten<span>c</span>e co<span>m</span>posed of multiple <span>w</span>ords']
 
-> fuzzy(arr, 'w', true);
+> fuzzy(arr, 'w', '', ''); // Highlight chooser
 
 ['A sentence composed of multiple words']
-
-> fuzzy(arr, 's', false, function (toHighlight) {
-    return '<i>' + toHighlight + '</i>';
-});
-
-['A <i>s</i>entence composed of multiple words', '<i>S</i>et syntax Javscript']
 ```
