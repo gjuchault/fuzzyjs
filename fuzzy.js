@@ -10,27 +10,20 @@ Usage :
 
 ['A <span>s</span>enten<span>c</span>e co<span>m</span>posed of multiple <span>w</span>ords']
 
-> fuzzy(arr, 'w', true);
+> fuzzy(arr, 'w', '', ''); // Highlight chooser
 
 ['A sentence composed of multiple words']
-
-> fuzzy(arr, 's', false, function (toHighlight) {
-    return '<i>' + toHighlight + '</i>';
-});
-
-['A <i>s</i>entence composed of multiple words', '<i>S</i>et syntax Javscript']
 */
 
 // Improved from Bulat Bochkariov's version (http://www.quora.com/Algorithms/How-is-the-fuzzy-search-algorithm-in-Sublime-Text-designed)
 ;(function (window) {
-    window.fuzzy = function (searchSet, query, doNotHighlight, highlighter) {
+    window.fuzzy = function (searchSet, query, surroundBefore, surroundAfter) {
         if (!query) return searchSet;
-        if (!highlighter) {
-            highlighter = function (str) {
-                return '<span>' + str + '</span>';
-            }
+        if (surroundBefore === undefined || surroundAfter === undefined) {
+            surroundBefore = '<span>';
+            surroundAfter = '</span>';
         }
-    
+
         var tokens = query.toLowerCase().split(''),
             matches = [];
     
@@ -44,7 +37,7 @@ Usage :
     
             while (stringIndex < string.length) {
                 if (stringLC[stringIndex] === tokens[tokenIndex]) {
-                    matchWithHighlights += (doNotHighlight) ? string[stringIndex] : highlighter(string[stringIndex]);
+                    matchWithHighlights += surroundBefore + string[stringIndex] + surroundAfter;
                     matchedPositions.push(stringIndex);
                     tokenIndex++;
     
@@ -60,7 +53,16 @@ Usage :
                 stringIndex++;
             }
         });
-    
+
+        if (surroundBefore) {
+            matches = matches.sort(function (a, b) {
+                var scoreA = a.split(surroundBefore).length - 1
+                    scoreB = b.split(surroundBefore).length - 1;
+
+                return (scoreA > scoreB) ? 1 : (scoreB > scoreA) ? -1 : 0;
+            });
+        }
+
         return matches;
     }
 }(window));
