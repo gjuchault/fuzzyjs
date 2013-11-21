@@ -17,43 +17,52 @@ Usage :
 
 // Improved from Bulat Bochkariov's version (http://www.quora.com/Algorithms/How-is-the-fuzzy-search-algorithm-in-Sublime-Text-designed)
 ;(function (window) {
-    window.fuzzy = function (searchSet, query, surroundBefore, surroundAfter) {
+    window.fuzzy = function (searchSet, query, caseSensitive, surroundBefore, surroundAfter) {
         if (!query) return searchSet;
+        if (caseSensitive === undefined) {
+            caseSensitive = false;
+        }
         if (surroundBefore === undefined || surroundAfter === undefined) {
             surroundBefore = '<span>';
             surroundAfter = '</span>';
         }
 
         var tokens = query.toLowerCase().split(''),
+            i = 0,
+            l = searchSet.length,
             matches = [];
     
-        // Better use forEach here, length may be invalid
-        searchSet.forEach(function (string) {
+        for (i; i < l; i++) {
+            // tokenIndex          : query letter index
+            // stringIndex         : current possible result letter index
+            // matchWithHighlights : string containing result
+            // stringLC            : lower-case search, or not
             var tokenIndex = 0,
                 stringIndex = 0,
                 matchWithHighlights = '',
                 matchedPositions = [],
-                stringLC = string.toLowerCase();
+                stringLC = (caseSensitive) ? searchSet[i] : searchSet[i].toLowerCase();
     
-            while (stringIndex < string.length) {
+            while (stringIndex < searchSet[i].length) {
+                // [Still] same letter
                 if (stringLC[stringIndex] === tokens[tokenIndex]) {
-                    matchWithHighlights += surroundBefore + string[stringIndex] + surroundAfter;
+                    matchWithHighlights += surroundBefore + searchSet[i][stringIndex] + surroundAfter;
                     matchedPositions.push(stringIndex);
                     tokenIndex++;
     
                     if (tokenIndex >= tokens.length) {
-                        matches.push(matchWithHighlights + string.slice(stringIndex + 1));
+                        matches.push(matchWithHighlights + searchSet[i].slice(stringIndex + 1));
                         break;
                     }
-                }
-                else {
-                    matchWithHighlights += string[stringIndex];
+                } else {
+                    matchWithHighlights += searchSet[i][stringIndex];
                 }
     
                 stringIndex++;
             }
-        });
+        };
 
+        // Order by number of occurences (requires surrounding)
         if (surroundBefore) {
             matches = matches.sort(function (a, b) {
                 var scoreA = a.split(surroundBefore).length - 1
