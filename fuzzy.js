@@ -1,11 +1,11 @@
 // Fuzzy.js
-// Writen by Extaze
+// Written by Extaze
 // Released under Apache 2 license
 
 /*
 
 Usage :
-> var arr = ['A sentence composed of multiple words', 'Set syntax Javscript'];
+> var arr = ['A sentence composed of multiple words', 'Set syntax JavaScript'];
 > fuzzy(arr, 'scmw');
 
 ['A <span>s</span>enten<span>c</span>e co<span>m</span>posed of multiple <span>w</span>ords']
@@ -62,7 +62,7 @@ Usage :
             }
         };
 
-        // Order by number of occurences (requires surrounding)
+        // Order by number of occurrences (requires surrounding)
         if (surroundBefore) {
             matches = matches.sort(function (a, b) {
                 var scoreA = a.split(surroundBefore).length - 1
