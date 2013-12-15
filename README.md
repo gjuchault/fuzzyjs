@@ -1,6 +1,6 @@
 # Fuzzy.js #
 
-Fuzzy.js is a fuzzy search algorithm in javascript
+Fuzzy.js is a fuzzy search algorithm in javascript. It fits in 577 bytes compressed (~400 bytes gzipped).
 
 ## License ##
 
