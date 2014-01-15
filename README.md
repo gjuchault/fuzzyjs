@@ -4,7 +4,7 @@ Fuzzy.js is a fuzzy search algorithm in javascript. It fits in 577 bytes compres
 
 ## License ##
 
-Fuzzy.js is licensed under Apache 2 License.
+Fuzzy.js is licensed under BSD License.
 
 ## Usage ##
 ```js
