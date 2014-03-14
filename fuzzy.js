@@ -1,6 +1,6 @@
 // Fuzzy.js
 // Written by Extaze
-// Released under Apache 2 license
+// Released under MIT license
 
 /*
 
