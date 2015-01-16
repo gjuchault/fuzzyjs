@@ -27,7 +27,7 @@ Usage :
             surroundAfter = '</span>';
         }
 
-        var tokens = query.toLowerCase().split(''),
+        var tokens = (caseSensitive) ? query.split('') : query.toLowerCase().split(''),
             i = 0,
             l = searchSet.length,
             matches = [];
