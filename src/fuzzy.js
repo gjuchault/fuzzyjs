@@ -1,5 +1,5 @@
 // Fuzzy.js
-// Written by Extaze
+// Written by Gabriel Juchault
 // Released under MIT license
 
 /*
