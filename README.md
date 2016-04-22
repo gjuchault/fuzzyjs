@@ -1,5 +1,7 @@
 # Fuzzy.js #
 
+[![Build Status](https://travis-ci.org/gjuchault/fuzzy.js.svg?branch=master)](https://travis-ci.org/gjuchault/fuzzy.js)
+
 Fuzzy.js is a fuzzy search algorithm in javascript. It fits in 577 bytes compressed (~400 bytes gzipped).
 
 ## License ##
