@@ -17,6 +17,7 @@
   },
   "scripts": {
     "build": "babel -d build/ src/",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "test": "babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha -- --sort --bail"
   },
   "repository": {
