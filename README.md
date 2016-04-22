@@ -8,12 +8,16 @@ Fuzzy.js is licensed under MIT License.
 
 ## Usage ##
 ```js
-> var arr = ['A sentence composed of multiple words', 'Set syntax Javscript'];
-> fuzzy(arr, 'scmw');
-
-['A <span>s</span>enten<span>c</span>e co<span>m</span>posed of multiple <span>w</span>ords']
-
-> fuzzy(arr, 'w', true, '', ''); // Case-sensitive & highlight chooser
+const arr = ['A sentence composed of multiple words', 'Set syntax Javscript'];
+fuzzy(arr, 'scmw');
 
 ['A sentence composed of multiple words']
+
+fuzzy(arr, 'w', {
+    caseSensitive: true,
+    before: '<span>',
+    after: '</span>'
+});
+
+['A sentence composed of multiple <span>w</span>ords']
 ```
