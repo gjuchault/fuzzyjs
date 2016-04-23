@@ -1,13 +1,13 @@
-# Fuzzy.js #
+# Fuzzyjs #
 
-[![Build Status](https://travis-ci.org/gjuchault/fuzzy.js.svg?branch=master)](https://travis-ci.org/gjuchault/fuzzy.js)
-[![Coverage Status](https://coveralls.io/repos/github/gjuchault/fuzzy.js/badge.svg?branch=master)](https://coveralls.io/github/gjuchault/fuzzy.js?branch=master)
+[![Build Status](https://travis-ci.org/gjuchault/fuzzyjs.svg?branch=master)](https://travis-ci.org/gjuchault/fuzzyjs)
+[![Coverage Status](https://coveralls.io/repos/github/gjuchault/fuzzyjs/badge.svg?branch=master)](https://coveralls.io/github/gjuchault/fuzzyjs?branch=master)
 
-Fuzzy.js is a fuzzy search algorithm in javascript. It fits in 577 bytes compressed (~400 bytes gzipped).
+fuzzyjs is a fuzzy search algorithm in javascript. It fits in 577 bytes compressed (~400 bytes gzipped).
 
 ## License ##
 
-Fuzzy.js is licensed under MIT License.
+fuzzyjs is licensed under MIT License.
 
 ## Usage ##
 ```js
