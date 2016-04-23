@@ -10,6 +10,9 @@ script:
 - npm run test
 after_script:
 - npm run coveralls
+before_deploy:
+- npm run build
+- rm -rf src/
 deploy:
   provider: npm
   email: gabriel.juchault@gmail.com
