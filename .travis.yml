@@ -11,8 +11,5 @@ after_script:
 - npm run coveralls
 deploy:
   provider: npm
-  email: gabriel.juchault@gmail.com
   api_key:
-    secure: gWw1AbllqcdbUBjYICvSs0MJkRozH2nByd1uKhKa93RPKI3MdPh1/CgK9vCsfk4l78ZKZ2R6ijgEnabRxPC38epP1IOKhyVKDGZtv15V2Yyu9MNof9ZbJ5Cuso2mS0jg0dG1KhwapaemvxEDGWrZvVUvzA5BJvoQNWTCMBqf3aE=
-  on:
-    repo: gjuchault/fuzzy.js
+    secure: RyC508zFjFoaZ6BQvuxbVGVDw2PTk14LcEtbcITG3VMBHpiElI3GsjeAbsyZZwdyIxma1OkNZ/dctcpQ+B+Xnb3FKN/NyZlLtlNTVTrazaFAJCgZjyabgxavlTYSdin4d4HkOe4HoZi20Cx6tM9cvB0OqeeV+0efIwVxbbaHu+E=
