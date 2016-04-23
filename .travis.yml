@@ -14,6 +14,6 @@ deploy:
   provider: npm
   email: gabriel.juchault@gmail.com
   api_key:
-    secure: ILUzIFoosvNZGr11PP/rbNnbRVM7VJU21NzdOGN/V0+YFsvaPQpPYwqzVUnh0Z+o5vUDJC0qIGmu1ZpvySyhzDVdPoV0hnVLqn+YOxTaVx0VHN7tO8KzXQxUucKegJbZRoM+j5n/GWfgOF+Jfhu2Hngtyz65lzOotXFcq7pNCM4=
+    secure: IJ8px2r0JaUm2jHVZkOrRKuc6d//bBbVVlvWC1/UCGzlN4sYando0rn0D1nHTOpQFur7yPXVQOipmxhrC6JOSjloUkZXptSksj39vVxGUaQRBR0FRf4mEHvUe5oH9QfgJLreqi3+c4LI2qC34uFPjzVPtlnBhvEa4x3gcm2TdWE=
   on:
     repo: gjuchault/fuzzyjs
