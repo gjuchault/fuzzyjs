@@ -7,7 +7,7 @@ const testSet = [
     'Set syntax Javascript'
 ];
 
-describe('fuzzy.js', () => {
+describe('fuzzyjs', () => {
     describe('default search', () => {
         it('finds the right string and surrounds it with a span tag', () => {
             const expected = [

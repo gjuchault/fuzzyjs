@@ -1,5 +1,5 @@
 {
-  "name": "fuzzy.js",
+  "name": "fuzzyjs",
   "version": "1.0.0",
   "description": "Fuzzy.js is a fuzzy search algorithm in javascript",
   "main": "dist/fuzzy.js",
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gjuchault/fuzzy.js.git"
+    "url": "git+https://github.com/gjuchault/fuzzyjs.git"
   },
   "keywords": [
     "fuzzy",
@@ -35,7 +35,7 @@
   "author": "Gabriel Juchault <gabriel.juchault@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gjuchault/fuzzy.js/issues"
+    "url": "https://github.com/gjuchault/fuzzyjs/issues"
   },
-  "homepage": "https://github.com/gjuchault/fuzzy.js#readme"
+  "homepage": "https://github.com/gjuchault/fuzzyjs#readme"
 }
