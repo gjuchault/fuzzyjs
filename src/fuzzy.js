@@ -59,6 +59,7 @@ const fuzzy = (searchSet, query, opts_) => {
     return matches;
 };
 
+/* istanbul ignore next */
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         define([], factory);
@@ -67,4 +68,6 @@ const fuzzy = (searchSet, query, opts_) => {
     } else {
         root.returnExports = factory();
   }
-}(this, fuzzy));
+}(this, function () {
+    return fuzzy;
+}));
