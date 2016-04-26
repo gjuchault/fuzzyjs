@@ -83,6 +83,7 @@ describe('fuzzyjs', () => {
             assert.equal(expected, result);
         });
     });
+
     describe('match', () => {
         it('should return { score: 0, result: str } if no query', () => {
             const str = 'foo';
@@ -214,6 +215,7 @@ describe('fuzzyjs', () => {
             assert.equal(expectedResult, result.result);
         });
     });
+
     describe('filter', () => {
         it('should return the original set if no query', () => {
             const arr = ['lorem ipsum', 'foo', 'the li element'];
