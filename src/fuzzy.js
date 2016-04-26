@@ -1,62 +1,163 @@
-// Improved from Bulat Bochkariov's version (http://www.quora.com/Algorithms/How-is-the-fuzzy-search-algorithm-in-Sublime-Text-designed)
-const fuzzy = (searchSet, query, opts_) => {
-    const opts = Object.assign({
-        caseSensitive: false,
-        before: '',
-        after: ''
-    }, opts_);
+const isArray = arr => Object.prototype.toString.call(arr) === '[object Array]';
 
-    if (!query) {
-        return searchSet;
-    }
+const fuzzy = {
+    /**
+     * Tests if a string matches a pattern
+     * @param  {String}  q             The pattern
+     * @param  {String}  str           The string
+     * @param  {Boolean} caseSensitive True if case sensitive should count
+     * @return {Boolean} True if the string matches, false otherwise
+     */
+    test(q, str, caseSensitive = false) {
+        if (typeof q !== 'string' || typeof str !== 'string') {
+            return -1;
+        }
 
-    const tokens = opts.caseSensitive ? query.split('') : query.toLowerCase().split('');
-    let matches  = [];
-    const l      = searchSet.length;
-    let i        = 0;
+        if (!str) {
+            return -1;
+        }
 
-    for (i; i < l; ++i) {
-        // tokenIndex          : query letter index
-        // stringIndex         : current possible result letter index
-        // matchWithHighlights : string containing result
-        // stringLC            : lower-case search, or not
+        if (!q) {
+            return true;
+        }
 
-        let tokenIndex          = 0;
-        let stringIndex         = 0;
-        let matchWithHighlights = '';
-        const matchedPositions  = [];
-        const stringLC          = opts.caseSensitive ? searchSet[i] : searchSet[i].toLowerCase();
+        if (!caseSensitive) {
+            q   = q.toLowerCase();
+            str = str.toLowerCase();
+        }
 
-        while (stringIndex < searchSet[i].length) {
-            // [Still] same letter
-            if (stringLC[stringIndex] === tokens[tokenIndex]) {
-                matchWithHighlights += opts.before + searchSet[i][stringIndex] + opts.after;
-                matchedPositions.push(stringIndex);
-                ++tokenIndex;
+        let pos = 0;
+        let i   = 0;
 
-                if (tokenIndex >= tokens.length) {
-                    matches.push(matchWithHighlights + searchSet[i].slice(stringIndex + 1));
-                    break;
-                }
-            } else {
-                matchWithHighlights += searchSet[i][stringIndex];
+        while (i < str.length) {
+
+            if (str[i] === q[pos]) {
+                pos += 1;
             }
 
-            ++stringIndex;
+            ++i;
         }
+
+        return pos === q.length;
+    },
+
+    /**
+     * Tests if a string matches a pattern and return a score
+     * @param  {String} q    The pattern
+     * @param  {String} str  The string
+     * @param  {Object} opts Options containing `caseSensitive` `before` and `after`
+     * @return {Object} Object containing score and surrounded (or intact) result
+     */
+    match(q, str, opts) {
+        if (typeof q !== 'string' || typeof str !== 'string') {
+            return { score: 0, result: str };
+        }
+
+        if (!str) {
+            return { score: 0, result: str };
+        }
+
+        if (!q) {
+            return { score: 1, result: str };
+        }
+
+        opts = Object.assign({
+            caseSensitive: false,
+            before       : '',
+            after        : ''
+        }, opts);
+
+        if (!opts.caseSensitive) {
+            q   = q.toLowerCase();
+            str = str.toLowerCase();
+        }
+
+        // String with surrounded results
+        let result = '';
+
+        // Number of spaces between matches
+        let steps = 0;
+
+        // Actual pattern position
+        let pos = 0;
+
+        // Last match position
+        let lastI = 0;
+
+        let i = 0;
+        while (i < str.length) {
+            const c = str[i];
+
+            if (c === q[pos]) {
+                result += opts.before + c + opts.after;
+
+                // Move to the next pattern character
+                pos += 1;
+
+                // Add spaces between the last match to steps
+                steps += (i - lastI);
+
+                // Reset counter to the actual position in string
+                lastI = i;
+            } else {
+                result += c;
+            }
+
+            ++i;
+        }
+
+        if (pos === q.length) {
+            // Score between 0 and 1 calculated by the number of spaces
+            // between letters and the string length.
+            // The biggest the score is the better
+            const score = q.length / (steps + 1);
+
+            return { score, result };
+        }
+
+        return { score: 0, result: str };
+    },
+
+    /**
+     * Filters an array based on the pattern
+     * @param  {String}        q    The pattern
+     * @param  {Array<String>} set  An array of queries
+     * @param  {Object}        opts Options containing `caseSensitive` `before` and `after`
+     * @return {Array<String>} A sorted array of results
+     */
+    filter(q, set, opts) {
+        if (!isArray(set)) {
+            return [];
+        }
+
+        if (typeof q !== 'string' || !q) {
+            return set;
+        }
+
+        opts = Object.assign({
+            caseSensitive: false,
+            before       : '',
+            after        : ''
+        }, opts);
+
+        const results = [];
+
+        let i = 0;
+        while (i < set.length) {
+            const str    = set[i];
+            const result = fuzzy.match(q, str, opts);
+
+            if (result.score > 0) {
+                results.push(result);
+            }
+
+            ++i;
+        }
+
+        return results
+            .sort((a, b) => b.score - a.score)
+            .map(elem => elem.result)
     }
-
-    // Order by number of occurrences (requires surrounding)
-    if (opts.before.length > 0) {
-        matches = matches.sort((a, b) => {
-            const scoreA = a.split(opts.before).length - 1;
-            const scoreB = b.split(opts.before).length - 1;
-
-            return scoreA - scoreB;
-        });
-    }
-
-    return matches;
 };
 
 /* istanbul ignore next */
@@ -67,7 +168,7 @@ const fuzzy = (searchSet, query, opts_) => {
         module.exports = factory();
     } else {
         root.returnExports = factory();
-  }
+    }
 }(this, function () {
     return fuzzy;
 }));
