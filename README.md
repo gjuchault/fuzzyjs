@@ -11,16 +11,28 @@ fuzzyjs is licensed under MIT License.
 
 ## Usage ##
 ```js
-const arr = ['A sentence composed of multiple words', 'Set syntax Javscript'];
-fuzzy(arr, 'scmw');
+// Basic true/false test
+fuzzy.test('li', 'lorem ipsum'); // true
+fuzzy.test('li', 'Lorem ipsum', true); // false
 
-['A sentence composed of multiple words']
+// Advanced match with surrounding and score
+fuzzy.match('li', 'lorem ipsum');
+// { score: 0.2857, result: 'lorem ipsum' }
 
-fuzzy(arr, 'w', {
+fuzzy.match('Li', 'Lorem ipsum', {
     caseSensitive: true,
     before: '<span>',
     after: '</span>'
 });
+// { score: 0.2857, result: '<span>L</span>orem <span>i</span>psum' }
 
-['A sentence composed of multiple <span>w</span>ords']
+// Filter an array using match (array is sorted based on score)
+const arr = ['lorem ipsum', 'foo', 'the li element'];
+fuzzy.filter('li', arr, { caseSensitive: true, before: '<span>', after: '</span>' });
+/*
+[
+    'the <span>l</span><span>i</span> element',
+    '<span>l</span>orem <span>i</span>psum'
+]
+*/
 ```
