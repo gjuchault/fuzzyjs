@@ -183,7 +183,7 @@ describe('fuzzyjs', () => {
             const expectedScore  = 1;
             const expectedResult = '<strong>F</strong><strong>o</strong>o';
 
-            const result = fuzzy.match(q, str);
+            const result = fuzzy.match(q, str, { before: '<strong>', after: '</strong>' });
 
             assert.equal(expectedScore, result.score);
             assert.equal(expectedResult, result.result);
