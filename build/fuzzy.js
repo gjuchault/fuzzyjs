@@ -16,7 +16,6 @@ var fuzzy = {
      * @param  {Boolean} caseSensitive True if case sensitive should count
      * @return {Boolean} True if the string matches, false otherwise
      */
-
     test: function test(q, str) {
         var caseSensitive = arguments.length <= 2 || arguments[2] === undefined ? false : arguments[2];
 
@@ -73,6 +72,9 @@ var fuzzy = {
             return { score: 1, result: str };
         }
 
+        // Keep original str for case
+        var originalStr = str;
+
         opts = _extends({
             caseSensitive: false,
             before: '',
@@ -101,7 +103,7 @@ var fuzzy = {
             var c = str[i];
 
             if (c === q[pos]) {
-                result += opts.before + c + opts.after;
+                result += opts.before + originalStr[i] + opts.after;
 
                 // Move to the next pattern character
                 pos += 1;
@@ -112,7 +114,7 @@ var fuzzy = {
                 // Reset counter to the actual position in string
                 lastI = i;
             } else {
-                result += c;
+                result += originalStr[i];
             }
 
             ++i;
