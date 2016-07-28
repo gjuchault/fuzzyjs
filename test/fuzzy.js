@@ -176,6 +176,19 @@ describe('fuzzyjs', () => {
             assert.equal(expectedResult, result.result);
         });
 
+        it('should keep case when using match (#6)', () => {
+            const str = 'Foo';
+            const q   = 'fo';
+
+            const expectedScore  = 0;
+            const expectedResult = '<strong>F</strong><strong>o</strong>o';
+
+            const result = fuzzy.match(q, str);
+
+            assert.equal(expectedScore, result.score);
+            assert.equal(expectedResult, result.result);
+        });
+
         it('should match with caseSensitive set to true and pattern matching', () => {
             const str = 'Lorem ipsum';
             const q   = 'Li';

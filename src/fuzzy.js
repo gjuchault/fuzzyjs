@@ -61,6 +61,9 @@ const fuzzy = {
             return { score: 1, result: str };
         }
 
+        // Keep original str for case
+        let originalStr = str;
+
         opts = Object.assign({
             caseSensitive: false,
             before       : '',
@@ -89,7 +92,7 @@ const fuzzy = {
             const c = str[i];
 
             if (c === q[pos]) {
-                result += opts.before + c + opts.after;
+                result += opts.before + originalStr[i] + opts.after;
 
                 // Move to the next pattern character
                 pos += 1;

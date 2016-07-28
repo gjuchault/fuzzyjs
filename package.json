@@ -1,6 +1,6 @@
 {
   "name": "fuzzyjs",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "fuzzyjs is a fuzzy search algorithm in javascript",
   "main": "build/fuzzy.js",
   "directories": {
