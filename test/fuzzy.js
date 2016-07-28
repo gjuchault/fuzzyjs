@@ -180,7 +180,7 @@ describe('fuzzyjs', () => {
             const str = 'Foo';
             const q   = 'fo';
 
-            const expectedScore  = 0;
+            const expectedScore  = 1;
             const expectedResult = '<strong>F</strong><strong>o</strong>o';
 
             const result = fuzzy.match(q, str);
