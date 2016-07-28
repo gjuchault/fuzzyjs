@@ -1,6 +1,6 @@
 {
   "name": "fuzzyjs",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "fuzzyjs is a fuzzy search algorithm in javascript",
   "main": "build/fuzzy.js",
   "directories": {
@@ -37,5 +37,9 @@
   "bugs": {
     "url": "https://github.com/gjuchault/fuzzyjs/issues"
   },
-  "homepage": "https://github.com/gjuchault/fuzzyjs#readme"
+  "homepage": "https://github.com/gjuchault/fuzzyjs#readme",
+  "typings": "./fuzzy.d.ts",
+  "typescript": {
+    "definition": "./fuzzy.d.ts"
+  }
 }
