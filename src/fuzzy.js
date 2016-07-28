@@ -103,7 +103,7 @@ const fuzzy = {
                 // Reset counter to the actual position in string
                 lastI = i;
             } else {
-                result += c;
+                result += originalStr[i];
             }
 
             ++i;

@@ -177,11 +177,11 @@ describe('fuzzyjs', () => {
         });
 
         it('should keep case when using match (#6)', () => {
-            const str = 'Foo';
+            const str = 'FoO';
             const q   = 'fo';
 
             const expectedScore  = 1;
-            const expectedResult = '<strong>F</strong><strong>o</strong>o';
+            const expectedResult = '<strong>F</strong><strong>o</strong>O';
 
             const result = fuzzy.match(q, str, { before: '<strong>', after: '</strong>' });
 
