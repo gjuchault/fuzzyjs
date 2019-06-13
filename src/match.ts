@@ -79,12 +79,6 @@ export const match = (
         leading: isLeading(previousCharacter, source[sourcePos])
       }
 
-      console.log(
-        `letter: ${source[sourcePos]} prevScore: ${score} newScore: ${pushScore(
-          lastContext,
-          newContext
-        )}`
-      )
       score = pushScore(lastContext, newContext)
 
       lastContext = newContext
