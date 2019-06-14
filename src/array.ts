@@ -17,7 +17,8 @@ export const filter = (query: string, options: FilterOptions = {}) => (source: a
 
 export const sort = (query: string, options: SortOptions = {}) => {
   const matchOptions: MatchOptions = {
-    ...options,
+    caseSensitive: options.caseSensitive,
+    strategy: options.strategy,
     withScore: true
   }
 
