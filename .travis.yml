@@ -1,23 +1,20 @@
 language: node_js
-sudo: false
+cache:
+  directories:
+    - ~/.npm
+notifications:
+  email: false
 node_js:
-- '5'
-install:
-- npm install
+  - '10'
+  - '11'
+  - '8'
+  - '6'
 script:
-- npm run build
-- npm run minify
-- npm run test
-after_script:
-- npm run coveralls
-before_deploy:
-- npm run build
-- rm -rf src/
-deploy:
-  skip_cleanup: true
-  provider: npm
-  email: gabriel.juchault@gmail.com
-  api_key:
-    secure: IJ8px2r0JaUm2jHVZkOrRKuc6d//bBbVVlvWC1/UCGzlN4sYando0rn0D1nHTOpQFur7yPXVQOipmxhrC6JOSjloUkZXptSksj39vVxGUaQRBR0FRf4mEHvUe5oH9QfgJLreqi3+c4LI2qC34uFPjzVPtlnBhvEa4x3gcm2TdWE=
-  on:
-    repo: gjuchault/fuzzyjs
+  - npm run test:prod && npm run build
+after_success:
+  - npm run travis-deploy-once "npm run report-coverage"
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then npm run travis-deploy-once "npm run deploy-docs"; fi
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then npm run travis-deploy-once "npm run semantic-release"; fi
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
