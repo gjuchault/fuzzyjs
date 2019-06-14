@@ -25,8 +25,8 @@ export const sort = (query: string, options: SortOptions = {}) => {
 
   if (!options.idPath) {
     return (leftSource: any, rightSource: any) => {
-      const leftScore = match(query, get(leftSource, sourcePath), matchOptions).score
-      const rightScore = match(query, get(rightSource, sourcePath), matchOptions).score
+      const leftScore = match(query, get(leftSource, sourcePath), matchOptions).score!
+      const rightScore = match(query, get(rightSource, sourcePath), matchOptions).score!
 
       if (rightScore === leftScore) return 0
       return rightScore > leftScore ? 1 : -1
@@ -41,11 +41,11 @@ export const sort = (query: string, options: SortOptions = {}) => {
 
     const leftScore: number = memo.hasOwnProperty(leftId)
       ? memo[leftId]
-      : match(query, get(leftSource, sourcePath), matchOptions).score
+      : match(query, get(leftSource, sourcePath), matchOptions).score!
 
     const rightScore: number = memo.hasOwnProperty(rightId)
       ? memo[rightId]
-      : match(query, get(rightSource, sourcePath), matchOptions).score
+      : match(query, get(rightSource, sourcePath), matchOptions).score!
 
     if (!memo.hasOwnProperty(leftId)) {
       memo[leftId] = leftScore

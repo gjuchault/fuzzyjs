@@ -12,7 +12,7 @@ export type MatchOptions = TestOptions & {
 
 export type MatchResult = {
   match: boolean
-  score: number
+  score?: number
   ranges?: Array<MatchRange>
 }
 
@@ -23,7 +23,7 @@ export type MatchRange = {
 
 export type ScoreContext = null | {
   currentScore: number
-  character: String
+  character: string
   match: boolean
   leading: boolean
 }
@@ -39,10 +39,11 @@ export const match = (
 
   // if no source, then only return true if query is also empty
   if (!reshapedSource.length || !reshapedQuery.length) {
-    const result: MatchResult = { match: !query.length, score: Number(!query.length) }
+    const result: MatchResult = { match: !query.length }
 
     if (opts.withRanges)
       result.ranges = !query.length ? [{ start: 0, stop: reshapedSource.length }] : []
+    if (opts.withScore) result.score = Number(!query.length)
 
     return result
   }
@@ -52,6 +53,7 @@ export const match = (
     const result: MatchResult = { match: false, score: 0 }
 
     if (opts.withRanges) result.ranges = []
+    if (opts.withScore) result.score = 0
 
     return result
   }
@@ -99,12 +101,18 @@ export const match = (
   }
 
   if (queryPos === reshapedQuery.length) {
-    const result: MatchResult = { match: true, score }
+    const result: MatchResult = { match: true }
 
     if (opts.withRanges) result.ranges = ranges
+    if (opts.withScore) result.score = score
 
     return result
   }
 
-  return { match: false, score: 0 }
+  const result: MatchResult = { match: false }
+
+  if (opts.withRanges) result.ranges = []
+  if (opts.withScore) result.score = 0
+
+  return result
 }
