@@ -122,6 +122,7 @@
     "typescript": "^3.0.3"
   },
   "dependencies": {
-    "@sindresorhus/slugify": "^0.9.1"
+    "@sindresorhus/slugify": "^0.9.1",
+    "dot-prop": "^5.1.0"
   }
 }

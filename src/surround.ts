@@ -28,12 +28,10 @@ export const surround = (source: string, options: SurroundOptions) => {
   let accumulator = 0
 
   for (let range of options.result.ranges) {
-    console.log('insertAt', result, range.start + accumulator, options.prefix)
     result = insertAt(result, range.start + accumulator, options.prefix)
 
     accumulator += (options.prefix || '').length
 
-    console.log('insertAt', result, range.stop + accumulator, options.suffix)
     result = insertAt(result, range.stop + accumulator, options.suffix)
 
     accumulator += (options.suffix || '').length
