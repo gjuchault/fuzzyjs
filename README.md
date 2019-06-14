@@ -118,7 +118,7 @@ type ScoreContext = {
 }
 ```
 
-Link to default strategy: [here](./src/score/defaultStrategy).
+Link to default strategy: [here](./src/score/defaultStrategy.ts).
 
 ## License
 
