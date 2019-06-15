@@ -1,6 +1,6 @@
 {
   "name": "fuzzyjs",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Fuzzy matching in Javascript",
   "keywords": [
     "fuzzy",
@@ -14,9 +14,6 @@
   "main": "dist/index.umd.js",
   "module": "dist/index.es5.js",
   "typings": "dist/types/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "author": "Gabriel Juchault <gabriel.juchault@gmail.com>",
   "repository": {
     "type": "git",
