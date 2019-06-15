@@ -13,6 +13,7 @@ script:
 deploy:
   provider: npm
   email: gabriel.juchault@gmail.com
+  skip_cleanup: true
   api_key:
     secure: UnmSOO9Qbd6k78Nhg0W10nDGWuHY+TikRHz6TSpuueos7Fedoiw0TWF1Lc9SUaaRfPgRvlhoH40FmZAO/IE5vqmnrC1oIkY3FRb4rIOGNYog+Uy579uMpKc/J8rrWgxgSmWtqDTmA6eH4cW21V2YDZ34AsJ8sGsrq2vl1HY5B80=
   on:
