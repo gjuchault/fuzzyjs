@@ -1,19 +1,19 @@
 language: node_js
 cache:
   directories:
-    - ~/.npm
+  - "~/.npm"
 notifications:
   email: false
 node_js:
-  - '10'
-  - '11'
-  - '8'
+- '10'
+- '11'
+- '8'
 script:
-  - npm run test:prod && npm run build
-after_success:
-  - npm run travis-deploy-once "npm run report-coverage"
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then npm run travis-deploy-once "npm run deploy-docs"; fi
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then npm run travis-deploy-once "npm run semantic-release"; fi
-branches:
-  except:
-    - /^v\d+\.\d+\.\d+$/
+- npm run test:prod && npm run build
+deploy:
+  provider: npm
+  email: gabriel.juchault@gmail.com
+  api_key:
+    secure: UnmSOO9Qbd6k78Nhg0W10nDGWuHY+TikRHz6TSpuueos7Fedoiw0TWF1Lc9SUaaRfPgRvlhoH40FmZAO/IE5vqmnrC1oIkY3FRb4rIOGNYog+Uy579uMpKc/J8rrWgxgSmWtqDTmA6eH4cW21V2YDZ34AsJ8sGsrq2vl1HY5B80=
+  on:
+    repo: gjuchault/fuzzyjs
