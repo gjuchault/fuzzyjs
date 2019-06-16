@@ -1,4 +1,4 @@
-import { get } from 'dot-prop'
+import { get as dotGet } from 'dot-prop'
 import { test, TestOptions } from './test'
 import { match, ScoreStrategy, MatchOptions } from './match'
 
@@ -10,6 +10,14 @@ export type SortOptions = TestOptions & {
   strategy?: ScoreStrategy
   sourcePath?: string
   idPath?: string
+}
+
+const get = (object: any, path: string) => {
+  if (!path) {
+    return object
+  }
+
+  return path.indexOf('.') > -1 ? dotGet(object, path) : object[path]
 }
 
 export const filter = (query: string, options: FilterOptions = {}) => (source: any) =>
