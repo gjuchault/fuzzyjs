@@ -54,4 +54,30 @@ describe('test()', () => {
       expect(test('abc', 'Ananas Banana Caramel', { caseSensitive: true })).toBe(false)
     })
   })
+
+  describe('given a non-ASCII query and an ASCII source', () => {
+    it('returns true when the query matches the source', () => {
+      expect(test('föÔ', 'foo')).toBe(true)
+    })
+
+    it('returns false otherwise', () => {
+      expect(test('föÔ', 'foz')).toBe(false)
+    })
+  })
+
+  describe('given an ASCII query and a non-ASCII source', () => {
+    it('returns true when the query matches the source', () => {
+      expect(test('foo', 'föÔ')).toBe(true)
+    })
+
+    it('returns false otherwise', () => {
+      expect(test('foz', 'föÔ')).toBe(false)
+    })
+  })
+
+  describe('given a non-ASCII query and a non-ASCII source', () => {
+    it('returns true when the query matches the source', () => {
+      expect(test('fôö', 'föô')).toBe(true)
+    })
+  })
 })

@@ -15,8 +15,14 @@ export const prepare = (query: string, source: string, opts: PrepareOptions) => 
   let reshapedSource = source
 
   if (!opts.caseSensitive) {
-    reshapedQuery = query.toLowerCase()
-    reshapedSource = source.toLowerCase()
+    reshapedQuery = query
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+    reshapedSource = source
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
   }
 
   return [reshapedQuery, reshapedSource]
