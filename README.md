@@ -116,7 +116,7 @@ const sources = [
   { name: { foo: 'Set Syntax: HTML' } }
 ]
 
-sources.filter(fuzzy('ssjs', { sourcePath: 'name.foo' }))
+sources.filter(fuzzy('ssjs', { sourceAccessor: source => source.name.foo }))
 [ { name: { foo: 'Set Syntax: JavaScript' } } ]
 ```
 
