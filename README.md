@@ -99,7 +99,8 @@ type SurroundOptions = {
 
 **`filter`**
 
-Can be used as a [Array.prototype.filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) callback
+Can be used as a [Array.prototype.filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) callback.
+You can use the `sourceAccessor` option if you pass an array of objects that contains the string you want to match.
 
 ```ts
 import { filter as fuzzy } from 'fuzzyjs'
@@ -123,14 +124,14 @@ sources.filter(fuzzy('ssjs', { sourcePath: 'name.foo' }))
 const filter: (query: string, options?: FilterOptions) => (source: any) => boolean
 
 type FilterOptions = TestOptions & {
-  sourcePath?: string // used as an accessor path if array is made of objects
+  sourceAccessor?: (source: any) => string
 }
 ```
 
 **`sort`**
 
-Can be used as a [Array.prototype.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) callback
-If you have a large array of objects, you might want to pass `idPath` as it creates a [memoization](https://en.wikipedia.org/wiki/Memoization) table which reduces drastically how many times the fuzzy matching algorithm will be called.
+Can be used as a [Array.prototype.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) callback.
+If you have a large array of objects, you might want to pass `idAccessor` as it creates a [memoization](https://en.wikipedia.org/wiki/Memoization) table which reduces drastically how many times the fuzzy matching algorithm will be called.
 
 ```ts
 import { sort as fuzzy } from 'fuzzyjs'
@@ -141,16 +142,24 @@ sources.sort(fuzzy('ssjs'))
 [ 'Set Syntax: JavaScript', 'Set Syntax: CSS', 'Set Syntax: HTML' ]
 
 const sources = [
-  { name: { foo: 'Set Syntax: CSS' } },
-  { name: { foo: 'Set Syntax: HTML' } },
-  { name: { foo: 'Set Syntax: JavaScript' } }
+  { name: { id: 0, foo: 'Set Syntax: CSS' } },
+  { name: { id: 1, foo: 'Set Syntax: HTML' } },
+  { name: { id: 2, foo: 'Set Syntax: JavaScript' } }
 ]
 
-sources.sort(fuzzy('ssjs', { sourcePath: 'name.foo' }))
+sources.sort(fuzzy('ssjs', { sourceAccessor: source => source.name.foo }))
 [
-  { name: { foo: 'Set Syntax: JavaScript' } },
-  { name: { foo: 'Set Syntax: CSS' } },
-  { name: { foo: 'Set Syntax: HTML' } }
+  { name: { id: 2, foo: 'Set Syntax: JavaScript' } },
+  { name: { id: 0, foo: 'Set Syntax: CSS' } },
+  { name: { id: 1, foo: 'Set Syntax: HTML' } }
+]
+
+// same, but will be faster thanks to memoization
+sources.sort(fuzzy('ssjs', { sourceAccessor: source => source.name.foo, idAccessor: source => source.name.id }))
+[
+  { name: { id: 2, foo: 'Set Syntax: JavaScript' } },
+  { name: { id: 0, foo: 'Set Syntax: CSS' } },
+  { name: { id: 1, foo: 'Set Syntax: HTML' } }
 ]
 ```
 
@@ -159,8 +168,8 @@ const sort: (query: string, options?: SortOptions) => (leftSource: any, rightSou
 
 type SortOptions = TestOptions & {
   strategy?: ScoreStrategy
-  sourcePath?: string // used as an accessor path if array is made of objects
-  idPath?: string // used as an accessor path if you want fuzzy to be memoized
+  sourceAccessor?: (source: any) => string // used as an accessor if array is made of objects
+  idAccessor?: (source: any) => string // used as an accessor if you want fuzzy to be memoized
 }
 ```
 
