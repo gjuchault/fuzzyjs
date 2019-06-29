@@ -12,7 +12,7 @@ describe('Array helpers', () => {
       })
     })
 
-    describe('given a query and a sourcePath', () => {
+    describe('given a query and a sourceAccessor', () => {
       it('should return an Array.prototype compatible callback', () => {
         const sources = [
           { foo: { name: 'Set Syntax: JavaScript' } },
@@ -20,21 +20,25 @@ describe('Array helpers', () => {
           { foo: { name: 'Set Syntax: HTML' } }
         ]
 
-        expect(sources.filter(filter('ssjs', { sourcePath: 'foo.name' }))).toMatchObject([
-          sources[0]
-        ])
         expect(
-          sources.filter(filter('ssjs', { caseSensitive: true, sourcePath: 'foo.name' }))
+          sources.filter(filter('ssjs', { sourceAccessor: source => source.foo.name }))
+        ).toMatchObject([sources[0]])
+        expect(
+          sources.filter(
+            filter('ssjs', { caseSensitive: true, sourceAccessor: source => source.foo.name })
+          )
         ).toMatchObject([])
         expect(
-          sources.filter(filter('SSJS', { caseSensitive: true, sourcePath: 'foo.name' }))
+          sources.filter(
+            filter('SSJS', { caseSensitive: true, sourceAccessor: source => source.foo.name })
+          )
         ).toMatchObject([sources[0]])
       })
     })
   })
 
   describe('sort()', () => {
-    describe('given a query and no idPath', () => {
+    describe('given a query and no idAccessor', () => {
       it('should return an Array.prototype compatible callback, non optimized', () => {
         const sources = ['Set Syntax: HTML', 'Set Syntax: css', 'Set Syntax: JavaScript']
 
@@ -46,7 +50,7 @@ describe('Array helpers', () => {
       })
     })
 
-    describe('given a query and an idPath options', () => {
+    describe('given a query and an idAccessor options', () => {
       it('should return an Array.prototype compatible callback, optimized', () => {
         const sources = [
           { id: 'Set Syntax: Rust' },
@@ -59,7 +63,7 @@ describe('Array helpers', () => {
           { id: 'Set Syntax: Rust' }
         ]
 
-        expect(sources.sort(sort('sss', { sourcePath: 'id' }))).toMatchObject([
+        expect(sources.sort(sort('sss', { sourceAccessor: source => source.id }))).toMatchObject([
           { id: 'Set Syntax: JavaScript' },
           { id: 'Set Syntax: css' },
           { id: 'Set Syntax: Rust' },
@@ -70,7 +74,11 @@ describe('Array helpers', () => {
           { id: 'Set Syntax: Diff' }
         ])
 
-        expect(sources.sort(sort('sss', { sourcePath: 'id', idPath: 'id' }))).toMatchObject([
+        expect(
+          sources.sort(
+            sort('sss', { sourceAccessor: source => source.id, idAccessor: source => source.id })
+          )
+        ).toMatchObject([
           { id: 'Set Syntax: JavaScript' },
           { id: 'Set Syntax: css' },
           { id: 'Set Syntax: Rust' },

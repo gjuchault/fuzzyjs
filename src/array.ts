@@ -1,27 +1,24 @@
-import { get as dotGet } from 'dot-prop'
 import { test, TestOptions } from './test'
 import { match, ScoreStrategy, MatchOptions } from './match'
 
+type Accessor = (source: any) => string
+
 export type FilterOptions = TestOptions & {
-  sourcePath?: string
+  sourceAccessor?: Accessor
 }
 
 export type SortOptions = TestOptions & {
   strategy?: ScoreStrategy
-  sourcePath?: string
-  idPath?: string
+  sourceAccessor?: Accessor
+  idAccessor?: Accessor
 }
 
-const get = (object: any, path: string) => {
-  if (!path) {
-    return object
-  }
-
-  return path.indexOf('.') > -1 ? dotGet(object, path) : object[path]
+const get = (source: any, accessor?: Accessor): string => {
+  return typeof accessor === 'function' ? accessor(source) : source
 }
 
 export const filter = (query: string, options: FilterOptions = {}) => (source: any) =>
-  test(query, get(source, options.sourcePath || ''), options)
+  test(query, get(source, options.sourceAccessor), options)
 
 export const sort = (query: string, options: SortOptions = {}) => {
   const matchOptions: MatchOptions = {
@@ -30,12 +27,10 @@ export const sort = (query: string, options: SortOptions = {}) => {
     withScore: true
   }
 
-  const sourcePath = options.sourcePath || ''
-
-  if (!options.idPath) {
+  if (!options.idAccessor) {
     return (leftSource: any, rightSource: any) => {
-      const leftScore = match(query, get(leftSource, sourcePath), matchOptions).score!
-      const rightScore = match(query, get(rightSource, sourcePath), matchOptions).score!
+      const leftScore = match(query, get(leftSource, options.sourceAccessor), matchOptions).score!
+      const rightScore = match(query, get(rightSource, options.sourceAccessor), matchOptions).score!
 
       if (rightScore === leftScore) return 0
       return rightScore > leftScore ? 1 : -1
@@ -45,16 +40,16 @@ export const sort = (query: string, options: SortOptions = {}) => {
   const memo: { [key: string]: number } = {}
 
   return (leftSource: any, rightSource: any) => {
-    const leftId = get(leftSource, options.idPath!) as string
-    const rightId = get(rightSource, options.idPath!) as string
+    const leftId = get(leftSource, options.idAccessor) as string
+    const rightId = get(rightSource, options.idAccessor) as string
 
     const leftScore: number = memo.hasOwnProperty(leftId)
       ? memo[leftId]
-      : match(query, get(leftSource, sourcePath), matchOptions).score!
+      : match(query, get(leftSource, options.sourceAccessor), matchOptions).score!
 
     const rightScore: number = memo.hasOwnProperty(rightId)
       ? memo[rightId]
-      : match(query, get(rightSource, sourcePath), matchOptions).score!
+      : match(query, get(rightSource, options.sourceAccessor), matchOptions).score!
 
     if (!memo.hasOwnProperty(leftId)) {
       memo[leftId] = leftScore

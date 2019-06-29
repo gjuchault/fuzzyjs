@@ -114,7 +114,5 @@
     "typedoc": "^0.14.2",
     "typescript": "^3.5.2"
   },
-  "dependencies": {
-    "dot-prop": "^5.1.0"
-  }
+  "dependencies": {}
 }
