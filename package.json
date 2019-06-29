@@ -35,7 +35,6 @@
     "semantic-release": "semantic-release",
     "benchmark": "node benchmark",
     "benchmark:brk": "node --inspect --debug-brk benchmark/withoutTimers",
-    "precommit": "lint-staged",
     "travis-deploy-once": "travis-deploy-once"
   },
   "lint-staged": {
@@ -114,5 +113,10 @@
     "typedoc": "^0.14.2",
     "typescript": "^3.5.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
 }
