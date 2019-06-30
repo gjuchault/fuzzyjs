@@ -921,9 +921,6 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-interface">
 			<a href="matchresult.html" class="tsd-kind-icon">Match<wbr>Result</a>
 		</li>
-		<li class=" tsd-kind-interface">
-			<a href="prepareoptions.html" class="tsd-kind-icon">Prepare<wbr>Options</a>
-		</li>
 		<li class="current tsd-kind-interface">
 			<a href="scorecontext.html" class="tsd-kind-icon">Score<wbr>Context</a>
 			<ul>
@@ -959,12 +956,6 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-function">
 			<a href="../globals.html#filter" class="tsd-kind-icon">filter</a>
 		</li>
-		<li class=" tsd-kind-function tsd-is-not-exported">
-			<a href="../globals.html#get" class="tsd-kind-icon">get</a>
-		</li>
-		<li class=" tsd-kind-function tsd-is-not-exported">
-			<a href="../globals.html#insertat" class="tsd-kind-icon">insert<wbr>At</a>
-		</li>
 		<li class=" tsd-kind-function">
 			<a href="../globals.html#isleading" class="tsd-kind-icon">is<wbr>Leading</a>
 		</li>
@@ -996,6 +987,20 @@ img { max-width: 100%; }
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
+		<section class="tsd-panel tsd-comment">
+			<div class="tsd-comment tsd-typography">
+				<div class="lead">
+					<p>This represents a score context that the scoring function will use to
+					compute the new score. It must include:</p>
+					<ul>
+						<li><code>currentScore</code> the actual score (ie. the result of the last <code>pushScore</code> call or 0)</li>
+						<li><code>character</code> the actual source character. It must not be reshaped (ie. lowercased or normalized)</li>
+						<li><code>match</code> wether or not the actual source character is matched by the query</li>
+						<li><code>leading</code> wether or not the actual source character is a leading character (as returned by the <code>isLeading</code> function)</li>
+					</ul>
+				</div>
+			</div>
+		</section>
 		<section class="tsd-panel tsd-hierarchy">
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
@@ -1028,7 +1033,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">character<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/match.ts#L26">match.ts:26</a></li>
+						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/match.ts#L50">match.ts:50</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1038,7 +1043,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">current<wbr>Score<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/match.ts#L25">match.ts:25</a></li>
+						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/match.ts#L49">match.ts:49</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1048,7 +1053,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">leading<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/match.ts#L28">match.ts:28</a></li>
+						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/match.ts#L52">match.ts:52</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1058,7 +1063,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">match<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/match.ts#L27">match.ts:27</a></li>
+						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/match.ts#L51">match.ts:51</a></li>
 					</ul>
 				</aside>
 			</section>

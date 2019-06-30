@@ -1,9 +1,22 @@
 import { prepare } from './utils/prepare'
 
+/**
+ * This represents test options. You can specify if the source string should be
+ * lower cased or not (wether you want the test to be case-sensitive or not).
+ */
 export interface TestOptions {
   caseSensitive?: boolean
 }
 
+/**
+ * Returns wether or not the query fuzzy matches the source. This will returns
+ * a boolean.
+ *
+ * @param query The input query
+ * @param source The input source
+ * @param opts Options as defined by [[TestOptions]]
+ * @returns Wether or not the query fuzzy matches the source
+ */
 export const test = (query: string, source: string, opts: TestOptions = {}) => {
   const [reshapedQuery, reshapedSource] = prepare(query, source, opts)
 

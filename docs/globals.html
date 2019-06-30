@@ -922,9 +922,6 @@ img { max-width: 100%; }
 			<a href="interfaces/matchresult.html" class="tsd-kind-icon">Match<wbr>Result</a>
 		</li>
 		<li class=" tsd-kind-interface">
-			<a href="interfaces/prepareoptions.html" class="tsd-kind-icon">Prepare<wbr>Options</a>
-		</li>
-		<li class=" tsd-kind-interface">
 			<a href="interfaces/scorecontext.html" class="tsd-kind-icon">Score<wbr>Context</a>
 		</li>
 		<li class=" tsd-kind-interface">
@@ -944,12 +941,6 @@ img { max-width: 100%; }
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="globals.html#filter" class="tsd-kind-icon">filter</a>
-		</li>
-		<li class=" tsd-kind-function tsd-is-not-exported">
-			<a href="globals.html#get" class="tsd-kind-icon">get</a>
-		</li>
-		<li class=" tsd-kind-function tsd-is-not-exported">
-			<a href="globals.html#insertat" class="tsd-kind-icon">insert<wbr>At</a>
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="globals.html#isleading" class="tsd-kind-icon">is<wbr>Leading</a>
@@ -1138,7 +1129,6 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 							<li class="tsd-kind-interface"><a href="interfaces/matchoptions.html" class="tsd-kind-icon">Match<wbr>Options</a></li>
 							<li class="tsd-kind-interface"><a href="interfaces/matchrange.html" class="tsd-kind-icon">Match<wbr>Range</a></li>
 							<li class="tsd-kind-interface"><a href="interfaces/matchresult.html" class="tsd-kind-icon">Match<wbr>Result</a></li>
-							<li class="tsd-kind-interface"><a href="interfaces/prepareoptions.html" class="tsd-kind-icon">Prepare<wbr>Options</a></li>
 							<li class="tsd-kind-interface"><a href="interfaces/scorecontext.html" class="tsd-kind-icon">Score<wbr>Context</a></li>
 							<li class="tsd-kind-interface"><a href="interfaces/sortoptions.html" class="tsd-kind-icon">Sort<wbr>Options</a></li>
 							<li class="tsd-kind-interface"><a href="interfaces/surroundoptions.html" class="tsd-kind-icon">Surround<wbr>Options</a></li>
@@ -1156,8 +1146,6 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 						<h3>Functions</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-function"><a href="globals.html#filter" class="tsd-kind-icon">filter</a></li>
-							<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#get" class="tsd-kind-icon">get</a></li>
-							<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#insertat" class="tsd-kind-icon">insert<wbr>At</a></li>
 							<li class="tsd-kind-function"><a href="globals.html#isleading" class="tsd-kind-icon">is<wbr>Leading</a></li>
 							<li class="tsd-kind-function"><a href="globals.html#match" class="tsd-kind-icon">match</a></li>
 							<li class="tsd-kind-function"><a href="globals.html#prepare" class="tsd-kind-icon">prepare</a></li>
@@ -1180,9 +1168,14 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 				<div class="tsd-signature tsd-kind-icon">Accessor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/array.ts#L4">array.ts:4</a></li>
+						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/array.ts#L7">array.ts:7</a></li>
 					</ul>
 				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>This represents an accessor as used with <code>sourceAccessor</code> and <code>idAccessor</code>.</p>
+					</div>
+				</div>
 				<div class="tsd-type-declaration">
 					<h4>Type declaration</h4>
 					<ul class="tsd-parameters">
@@ -1211,9 +1204,18 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 				<div class="tsd-signature tsd-kind-icon">Score<wbr>Strategy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/match.ts#L31">match.ts:31</a></li>
+						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/match.ts#L63">match.ts:63</a></li>
 					</ul>
 				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>This represents the signature of the <code>pushScore</code> function. It requires the
+							previous context as long as the actual one (as we want to check for
+						concurrent matches), and returns the new score as a number.</p>
+					</div>
+					<p>The scoring function is not returning a number from 0 to 1 but a whole
+					natural number.</p>
+				</div>
 				<div class="tsd-type-declaration">
 					<h4>Type declaration</h4>
 					<ul class="tsd-parameters">
@@ -1252,74 +1254,38 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/array.ts#L19">array.ts:19</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/array.ts#L46">array.ts:46</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>This array helper can be used as an <code>Array.prototype.filter</code> callback as it
+									will return true or false when passing it a source string. The only
+									difference with <code>test</code> is that you can use it with an object, as long as you
+								give a <code>sourceAccessor</code> in options.</p>
+							</div>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>query: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The input query</p>
+									</div>
+								</div>
 							</li>
 							<li>
 								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="interfaces/filteroptions.html" class="tsd-signature-type">FilterOptions</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The options as defined in <a href="interfaces/filteroptions.html">FilterOptions</a></p>
+									</div>
+								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-				<a name="get" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> get</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-					<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, accessor<span class="tsd-signature-symbol">?: </span><a href="globals.html#accessor" class="tsd-signature-type">Accessor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/array.ts#L15">array.ts:15</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>source: <span class="tsd-signature-type">any</span></h5>
-							</li>
-							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessor: <a href="globals.html#accessor" class="tsd-signature-type">Accessor</a></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-				<a name="insertat" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> insert<wbr>At</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-					<li class="tsd-signature tsd-kind-icon">insert<wbr>At<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, patch<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/surround.ts#L11">surround.ts:11</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>input: <span class="tsd-signature-type">string</span></h5>
-							</li>
-							<li>
-								<h5>index: <span class="tsd-signature-type">number</span></h5>
-							</li>
-							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> patch: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						<p>A function that you can pass into <code>Array.prototype.filter</code></p>
 					</li>
 				</ul>
 			</section>
@@ -1333,19 +1299,38 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/utils/isLeading.ts#L3">utils/isLeading.ts:3</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/utils/isLeading.ts#L13">utils/isLeading.ts:13</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Returns true when the character is leading; ie. when it&#39;s a capital or
+									when it&#39;s following a separator character. You might also want to test if
+									the character comes from an alphabet as you wouldn&#39;t want to consider a
+								space as a leading character.</p>
+							</div>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>prevChar: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The character that appears before <code>char</code></p>
+									</div>
+								</div>
 							</li>
 							<li>
 								<h5>char: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The actual character you want to test</p>
+									</div>
+								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						<p>Wether or not the character is leading</p>
 					</li>
 				</ul>
 			</section>
@@ -1359,22 +1344,46 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/match.ts#L33">match.ts:33</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/match.ts#L76">match.ts:76</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Returns wether or not the query fuzzy matches the source. Called without
+									options would be strictly equivalent as <code>{ match: test(query, source) }</code> but
+									less optimized. You should use <code>withScore</code> or <code>withRanges</code> options to get
+								additional informations about the match.</p>
+							</div>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>query: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The input query</p>
+									</div>
+								</div>
 							</li>
 							<li>
 								<h5>source: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The input source</p>
+									</div>
+								</div>
 							</li>
 							<li>
 								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="interfaces/matchoptions.html" class="tsd-signature-type">MatchOptions</a><span class="tsd-signature-symbol"> =&nbsp;{ withScore: true, strategy: pushScore }</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Options as defined by <a href="interfaces/matchoptions.html">MatchOptions</a></p>
+									</div>
+								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="interfaces/matchresult.html" class="tsd-signature-type">MatchResult</a></h4>
+						<p>An object as defined by <a href="interfaces/matchresult.html">MatchResult</a></p>
 					</li>
 				</ul>
 			</section>
@@ -1382,28 +1391,50 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 				<a name="prepare" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> prepare</h3>
 				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">prepare<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, opts<span class="tsd-signature-symbol">: </span><a href="interfaces/prepareoptions.html" class="tsd-signature-type">PrepareOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
+					<li class="tsd-signature tsd-kind-icon">prepare<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, opts<span class="tsd-signature-symbol">: </span><a href="interfaces/testoptions.html" class="tsd-signature-type">TestOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/utils/prepare.ts#L5">utils/prepare.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/utils/prepare.ts#L12">utils/prepare.ts:12</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>This functions is used to throw when query or source is not defined as well
+								as normalizing and lower casing the input strings.</p>
+							</div>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>query: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The fuzzy query string</p>
+									</div>
+								</div>
 							</li>
 							<li>
 								<h5>source: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The fuzzy source string</p>
+									</div>
+								</div>
 							</li>
 							<li>
-								<h5>opts: <a href="interfaces/prepareoptions.html" class="tsd-signature-type">PrepareOptions</a></h5>
+								<h5>opts: <a href="interfaces/testoptions.html" class="tsd-signature-type">TestOptions</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>An options object that can contains <code>caseSensitive</code></p>
+									</div>
+								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
+						<p>The reshaped query string and the reshaped source string.</p>
 					</li>
 				</ul>
 			</section>
@@ -1417,19 +1448,37 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/utils/range.ts#L3">utils/range.ts:3</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/utils/range.ts#L12">utils/range.ts:12</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Appends to an actual list of ranges a new match. This will only increment
+									the last <a href="interfaces/matchrange.html">MatchRange</a> if the actual match and the last match were
+								siblings.</p>
+							</div>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>ranges: <a href="interfaces/matchrange.html" class="tsd-signature-type">MatchRange</a><span class="tsd-signature-symbol">[]</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The previous ranges array</p>
+									</div>
+								</div>
 							</li>
 							<li>
 								<h5>sourcePos: <span class="tsd-signature-type">number</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The position in source that matched</p>
+									</div>
+								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="interfaces/matchrange.html" class="tsd-signature-type">MatchRange</a><span class="tsd-signature-symbol">[]</span></h4>
+						<p>The new ranges array</p>
 					</li>
 				</ul>
 			</section>
@@ -1443,19 +1492,40 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/score/defaultStrategy.ts#L3">score/defaultStrategy.ts:3</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/score/defaultStrategy.ts#L15">score/defaultStrategy.ts:15</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Increments a context&#39;s score based on the context&#39;s values
+									This default strategy is based on
+									<a href="https://www.forrestthewoods.com/blog/reverse_engineering_sublime_texts_fuzzy_match/">https://www.forrestthewoods.com/blog/reverse_engineering_sublime_texts_fuzzy_match/</a>
+									A fuzzy matching scoring function should most of the time push a big score
+									when matching a leading letter (ie. a letter that is capital or comes
+								after a separator).</p>
+							</div>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>previousContext: <a href="interfaces/scorecontext.html" class="tsd-signature-type">ScoreContext</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The last context given to pushScore</p>
+									</div>
+								</div>
 							</li>
 							<li>
 								<h5>context: <a href="interfaces/scorecontext.html" class="tsd-signature-type">ScoreContext</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The actual context</p>
+									</div>
+								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						<p>The new score</p>
 					</li>
 				</ul>
 			</section>
@@ -1469,19 +1539,39 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/array.ts#L22">array.ts:22</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/array.ts#L60">array.ts:60</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>This array helper can be used as an <code>Array.prototype.sort</code> callback as it
+									will return <code>-1</code>/<code>0</code>/<code>1</code> when passing it two source strings. It is based on
+									match with default options set (<code>withRanges</code> to false and <code>withScore</code> to
+									true). You can also use <code>sourceAccessor</code> if you intend to sort over an array
+								of objects and <code>idAccessor</code> to optimize the performances.</p>
+							</div>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>query: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The input query</p>
+									</div>
+								</div>
 							</li>
 							<li>
 								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="interfaces/sortoptions.html" class="tsd-signature-type">SortOptions</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The options as defined in <a href="interfaces/sortoptions.html">SortOptions</a></p>
+									</div>
+								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+						<p>A function that you can pass into <code>Array.prototype.sort</code></p>
 					</li>
 				</ul>
 			</section>
@@ -1495,19 +1585,36 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/surround.ts#L14">surround.ts:14</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/surround.ts#L31">surround.ts:31</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Surround parts of the string that matched with prefix and suffix.
+								Useful to emphasize the parts that matched.</p>
+							</div>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>source: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The input source</p>
+									</div>
+								</div>
 							</li>
 							<li>
 								<h5>options: <a href="interfaces/surroundoptions.html" class="tsd-signature-type">SurroundOptions</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Options as defined by <a href="interfaces/surroundoptions.html">SurroundOptions</a></p>
+									</div>
+								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						<p>The input source with matching ranges surrounded by prefix and suffix</p>
 					</li>
 				</ul>
 			</section>
@@ -1521,22 +1628,44 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/test.ts#L7">test.ts:7</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/test.ts#L20">test.ts:20</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Returns wether or not the query fuzzy matches the source. This will returns
+								a boolean.</p>
+							</div>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>query: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The input query</p>
+									</div>
+								</div>
 							</li>
 							<li>
 								<h5>source: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The input source</p>
+									</div>
+								</div>
 							</li>
 							<li>
 								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="interfaces/testoptions.html" class="tsd-signature-type">TestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Options as defined by <a href="interfaces/testoptions.html">TestOptions</a></p>
+									</div>
+								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						<p>Wether or not the query fuzzy matches the source</p>
 					</li>
 				</ul>
 			</section>
@@ -1550,16 +1679,29 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/utils/toLatin.ts#L1">utils/toLatin.ts:1</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/utils/toLatin.ts#L9">utils/toLatin.ts:9</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Returns a normalized version of the string. This comes from
+									<a href="https://stackoverflow.com/a/37511463">https://stackoverflow.com/a/37511463</a>. It converts accented characters into
+								two UTF-8 characters (ie. <code>è</code> becomes e and `) and strip the accents.</p>
+							</div>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>str: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The input string</p>
+									</div>
+								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						<p>The input string without accents</p>
 					</li>
 				</ul>
 			</section>

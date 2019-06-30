@@ -1,5 +1,14 @@
 import { MatchRange } from '../match'
 
+/**
+ * Appends to an actual list of ranges a new match. This will only increment
+ * the last [[MatchRange]] if the actual match and the last match were
+ * siblings.
+ *
+ * @param ranges The previous ranges array
+ * @param sourcePos The position in source that matched
+ * @returns The new ranges array
+ */
 export const pushRange = (ranges: MatchRange[], sourcePos: number): MatchRange[] => {
   const lastRange = ranges[ranges.length - 1]
 
