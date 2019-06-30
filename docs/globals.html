@@ -909,38 +909,38 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class=" tsd-kind-type-alias tsd-is-not-exported">
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/filteroptions.html" class="tsd-kind-icon">Filter<wbr>Options</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/matchoptions.html" class="tsd-kind-icon">Match<wbr>Options</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/matchrange.html" class="tsd-kind-icon">Match<wbr>Range</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/matchresult.html" class="tsd-kind-icon">Match<wbr>Result</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/prepareoptions.html" class="tsd-kind-icon">Prepare<wbr>Options</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/scorecontext.html" class="tsd-kind-icon">Score<wbr>Context</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/sortoptions.html" class="tsd-kind-icon">Sort<wbr>Options</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/surroundoptions.html" class="tsd-kind-icon">Surround<wbr>Options</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/testoptions.html" class="tsd-kind-icon">Test<wbr>Options</a>
+		</li>
+		<li class=" tsd-kind-type-alias">
 			<a href="globals.html#accessor" class="tsd-kind-icon">Accessor</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#filteroptions" class="tsd-kind-icon">Filter<wbr>Options</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#matchoptions" class="tsd-kind-icon">Match<wbr>Options</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#matchrange" class="tsd-kind-icon">Match<wbr>Range</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#matchresult" class="tsd-kind-icon">Match<wbr>Result</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#prepareoptions" class="tsd-kind-icon">Prepare<wbr>Options</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#scorecontext" class="tsd-kind-icon">Score<wbr>Context</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
 			<a href="globals.html#scorestrategy" class="tsd-kind-icon">Score<wbr>Strategy</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#sortoptions" class="tsd-kind-icon">Sort<wbr>Options</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#surroundoptions" class="tsd-kind-icon">Surround<wbr>Options</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#testoptions" class="tsd-kind-icon">Test<wbr>Options</a>
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="globals.html#filter" class="tsd-kind-icon">filter</a>
@@ -1025,7 +1025,7 @@ match(<span class="hljs-string">'ssjav'</span>, <span class="hljs-string">'Set S
 <span class="hljs-keyword">type</span> MatchResult = {
   match: <span class="hljs-built_in">boolean</span>
   score?: <span class="hljs-built_in">number</span>
-  ranges?: <span class="hljs-built_in">Array</span>&lt;MatchRange&gt;
+  ranges?: MatchRange[]
 }</code></pre>
 			<h2 id="utilities">Utilities</h2>
 			<p><strong><code>surround</code></strong></p>
@@ -1047,7 +1047,7 @@ surround(
 
 <span class="hljs-keyword">type</span> SurroundOptions = {
   result: {
-    ranges: <span class="hljs-built_in">Array</span>&lt;MatchRange&gt;
+    ranges: MatchRange[]
   }
   prefix?: <span class="hljs-built_in">string</span> <span class="hljs-comment">// (default: '')</span>
   suffix?: <span class="hljs-built_in">string</span> <span class="hljs-comment">// (default: '')</span>
@@ -1132,19 +1132,24 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
 					<section class="tsd-index-section ">
+						<h3>Interfaces</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-interface"><a href="interfaces/filteroptions.html" class="tsd-kind-icon">Filter<wbr>Options</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/matchoptions.html" class="tsd-kind-icon">Match<wbr>Options</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/matchrange.html" class="tsd-kind-icon">Match<wbr>Range</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/matchresult.html" class="tsd-kind-icon">Match<wbr>Result</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/prepareoptions.html" class="tsd-kind-icon">Prepare<wbr>Options</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/scorecontext.html" class="tsd-kind-icon">Score<wbr>Context</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/sortoptions.html" class="tsd-kind-icon">Sort<wbr>Options</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/surroundoptions.html" class="tsd-kind-icon">Surround<wbr>Options</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/testoptions.html" class="tsd-kind-icon">Test<wbr>Options</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section ">
 						<h3>Type aliases</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-type-alias tsd-is-not-exported"><a href="globals.html#accessor" class="tsd-kind-icon">Accessor</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#filteroptions" class="tsd-kind-icon">Filter<wbr>Options</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#matchoptions" class="tsd-kind-icon">Match<wbr>Options</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#matchrange" class="tsd-kind-icon">Match<wbr>Range</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#matchresult" class="tsd-kind-icon">Match<wbr>Result</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#prepareoptions" class="tsd-kind-icon">Prepare<wbr>Options</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#scorecontext" class="tsd-kind-icon">Score<wbr>Context</a></li>
+							<li class="tsd-kind-type-alias"><a href="globals.html#accessor" class="tsd-kind-icon">Accessor</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#scorestrategy" class="tsd-kind-icon">Score<wbr>Strategy</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#sortoptions" class="tsd-kind-icon">Sort<wbr>Options</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#surroundoptions" class="tsd-kind-icon">Surround<wbr>Options</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#testoptions" class="tsd-kind-icon">Test<wbr>Options</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
@@ -1169,13 +1174,13 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Type aliases</h2>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-is-not-exported">
+			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="accessor" class="tsd-anchor"></a>
 				<h3>Accessor</h3>
 				<div class="tsd-signature tsd-kind-icon">Accessor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/array.ts#L4">array.ts:4</a></li>
+						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/array.ts#L4">array.ts:4</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1201,105 +1206,12 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="filteroptions" class="tsd-anchor"></a>
-				<h3>Filter<wbr>Options</h3>
-				<div class="tsd-signature tsd-kind-icon">Filter<wbr>Options<span class="tsd-signature-symbol">:</span> <a href="globals.html#testoptions" class="tsd-signature-type">TestOptions</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/array.ts#L6">array.ts:6</a></li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="matchoptions" class="tsd-anchor"></a>
-				<h3>Match<wbr>Options</h3>
-				<div class="tsd-signature tsd-kind-icon">Match<wbr>Options<span class="tsd-signature-symbol">:</span> <a href="globals.html#testoptions" class="tsd-signature-type">TestOptions</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/match.ts#L7">match.ts:7</a></li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="matchrange" class="tsd-anchor"></a>
-				<h3>Match<wbr>Range</h3>
-				<div class="tsd-signature tsd-kind-icon">Match<wbr>Range<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/match.ts#L19">match.ts:19</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter">
-							<h5>start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-						</li>
-						<li class="tsd-parameter">
-							<h5>stop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="matchresult" class="tsd-anchor"></a>
-				<h3>Match<wbr>Result</h3>
-				<div class="tsd-signature tsd-kind-icon">Match<wbr>Result<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/match.ts#L13">match.ts:13</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter">
-							<h5>match<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
-						</li>
-						<li class="tsd-parameter">
-							<h5><span class="tsd-flag ts-flagOptional">Optional</span> ranges<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#matchrange" class="tsd-signature-type">MatchRange</a><span class="tsd-signature-symbol">&gt;</span></h5>
-						</li>
-						<li class="tsd-parameter">
-							<h5><span class="tsd-flag ts-flagOptional">Optional</span> score<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="prepareoptions" class="tsd-anchor"></a>
-				<h3>Prepare<wbr>Options</h3>
-				<div class="tsd-signature tsd-kind-icon">Prepare<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/utils/prepare.ts#L1">utils/prepare.ts:1</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter">
-							<h5><span class="tsd-flag ts-flagOptional">Optional</span> case<wbr>Sensitive<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="scorecontext" class="tsd-anchor"></a>
-				<h3>Score<wbr>Context</h3>
-				<div class="tsd-signature tsd-kind-icon">Score<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/match.ts#L24">match.ts:24</a></li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="scorestrategy" class="tsd-anchor"></a>
 				<h3>Score<wbr>Strategy</h3>
 				<div class="tsd-signature tsd-kind-icon">Score<wbr>Strategy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/match.ts#L31">match.ts:31</a></li>
+						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/match.ts#L31">match.ts:31</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1307,79 +1219,22 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-siganture">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>previousContext<span class="tsd-signature-symbol">: </span><a href="globals.html#scorecontext" class="tsd-signature-type">ScoreContext</a>, context<span class="tsd-signature-symbol">: </span><a href="globals.html#scorecontext" class="tsd-signature-type">ScoreContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>previousContext<span class="tsd-signature-symbol">: </span><a href="interfaces/scorecontext.html" class="tsd-signature-type">ScoreContext</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, context<span class="tsd-signature-symbol">: </span><a href="interfaces/scorecontext.html" class="tsd-signature-type">ScoreContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5>previousContext: <a href="globals.html#scorecontext" class="tsd-signature-type">ScoreContext</a></h5>
+											<h5>previousContext: <a href="interfaces/scorecontext.html" class="tsd-signature-type">ScoreContext</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
 										</li>
 										<li>
-											<h5>context: <a href="globals.html#scorecontext" class="tsd-signature-type">ScoreContext</a></h5>
+											<h5>context: <a href="interfaces/scorecontext.html" class="tsd-signature-type">ScoreContext</a></h5>
 										</li>
 									</ul>
 									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 								</li>
 							</ul>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="sortoptions" class="tsd-anchor"></a>
-				<h3>Sort<wbr>Options</h3>
-				<div class="tsd-signature tsd-kind-icon">Sort<wbr>Options<span class="tsd-signature-symbol">:</span> <a href="globals.html#matchoptions" class="tsd-signature-type">MatchOptions</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/array.ts#L10">array.ts:10</a></li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="surroundoptions" class="tsd-anchor"></a>
-				<h3>Surround<wbr>Options</h3>
-				<div class="tsd-signature tsd-kind-icon">Surround<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/surround.ts#L3">surround.ts:3</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter">
-							<h5><span class="tsd-flag ts-flagOptional">Optional</span> prefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
-						</li>
-						<li class="tsd-parameter">
-							<h5>result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
-							<ul class="tsd-parameters">
-								<li class="tsd-parameter">
-									<h5>ranges<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#matchrange" class="tsd-signature-type">MatchRange</a><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-						</li>
-						<li class="tsd-parameter">
-							<h5><span class="tsd-flag ts-flagOptional">Optional</span> suffix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="testoptions" class="tsd-anchor"></a>
-				<h3>Test<wbr>Options</h3>
-				<div class="tsd-signature tsd-kind-icon">Test<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/test.ts#L3">test.ts:3</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter">
-							<h5><span class="tsd-flag ts-flagOptional">Optional</span> case<wbr>Sensitive<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
 						</li>
 					</ul>
 				</div>
@@ -1391,13 +1246,13 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 				<a name="filter" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> filter</h3>
 				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">filter<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="globals.html#filteroptions" class="tsd-signature-type">FilterOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+					<li class="tsd-signature tsd-kind-icon">filter<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="interfaces/filteroptions.html" class="tsd-signature-type">FilterOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/array.ts#L19">array.ts:19</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/array.ts#L19">array.ts:19</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1406,7 +1261,7 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 								<h5>query: <span class="tsd-signature-type">string</span></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="globals.html#filteroptions" class="tsd-signature-type">FilterOptions</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="interfaces/filteroptions.html" class="tsd-signature-type">FilterOptions</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
@@ -1423,7 +1278,7 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/array.ts#L15">array.ts:15</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/array.ts#L15">array.ts:15</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1449,7 +1304,7 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/surround.ts#L11">surround.ts:11</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/surround.ts#L11">surround.ts:11</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1478,7 +1333,7 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/utils/isLeading.ts#L3">utils/isLeading.ts:3</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/utils/isLeading.ts#L3">utils/isLeading.ts:3</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1498,13 +1353,13 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 				<a name="match" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> match</h3>
 				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">match<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, opts<span class="tsd-signature-symbol">?: </span><a href="globals.html#matchoptions" class="tsd-signature-type">MatchOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#matchresult" class="tsd-signature-type">MatchResult</a></li>
+					<li class="tsd-signature tsd-kind-icon">match<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, opts<span class="tsd-signature-symbol">?: </span><a href="interfaces/matchoptions.html" class="tsd-signature-type">MatchOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/matchresult.html" class="tsd-signature-type">MatchResult</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/match.ts#L33">match.ts:33</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/match.ts#L33">match.ts:33</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1516,10 +1371,10 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 								<h5>source: <span class="tsd-signature-type">string</span></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="globals.html#matchoptions" class="tsd-signature-type">MatchOptions</a><span class="tsd-signature-symbol"> =&nbsp;{ withScore: true, strategy: pushScore }</span></h5>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="interfaces/matchoptions.html" class="tsd-signature-type">MatchOptions</a><span class="tsd-signature-symbol"> =&nbsp;{ withScore: true, strategy: pushScore }</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="globals.html#matchresult" class="tsd-signature-type">MatchResult</a></h4>
+						<h4 class="tsd-returns-title">Returns <a href="interfaces/matchresult.html" class="tsd-signature-type">MatchResult</a></h4>
 					</li>
 				</ul>
 			</section>
@@ -1527,13 +1382,13 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 				<a name="prepare" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> prepare</h3>
 				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">prepare<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, opts<span class="tsd-signature-symbol">: </span><a href="globals.html#prepareoptions" class="tsd-signature-type">PrepareOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
+					<li class="tsd-signature tsd-kind-icon">prepare<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, opts<span class="tsd-signature-symbol">: </span><a href="interfaces/prepareoptions.html" class="tsd-signature-type">PrepareOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/utils/prepare.ts#L5">utils/prepare.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/utils/prepare.ts#L5">utils/prepare.ts:5</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1545,7 +1400,7 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 								<h5>source: <span class="tsd-signature-type">string</span></h5>
 							</li>
 							<li>
-								<h5>opts: <a href="globals.html#prepareoptions" class="tsd-signature-type">PrepareOptions</a></h5>
+								<h5>opts: <a href="interfaces/prepareoptions.html" class="tsd-signature-type">PrepareOptions</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -1556,25 +1411,25 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 				<a name="pushrange" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> push<wbr>Range</h3>
 				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">push<wbr>Range<span class="tsd-signature-symbol">(</span>ranges<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#matchrange" class="tsd-signature-type">MatchRange</a><span class="tsd-signature-symbol">&gt;</span>, sourcePos<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#matchrange" class="tsd-signature-type">MatchRange</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">push<wbr>Range<span class="tsd-signature-symbol">(</span>ranges<span class="tsd-signature-symbol">: </span><a href="interfaces/matchrange.html" class="tsd-signature-type">MatchRange</a><span class="tsd-signature-symbol">[]</span>, sourcePos<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/matchrange.html" class="tsd-signature-type">MatchRange</a><span class="tsd-signature-symbol">[]</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/utils/range.ts#L3">utils/range.ts:3</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/utils/range.ts#L3">utils/range.ts:3</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>ranges: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#matchrange" class="tsd-signature-type">MatchRange</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								<h5>ranges: <a href="interfaces/matchrange.html" class="tsd-signature-type">MatchRange</a><span class="tsd-signature-symbol">[]</span></h5>
 							</li>
 							<li>
 								<h5>sourcePos: <span class="tsd-signature-type">number</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#matchrange" class="tsd-signature-type">MatchRange</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <a href="interfaces/matchrange.html" class="tsd-signature-type">MatchRange</a><span class="tsd-signature-symbol">[]</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -1582,22 +1437,22 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 				<a name="pushscore" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> push<wbr>Score</h3>
 				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">push<wbr>Score<span class="tsd-signature-symbol">(</span>previousContext<span class="tsd-signature-symbol">: </span><a href="globals.html#scorecontext" class="tsd-signature-type">ScoreContext</a>, context<span class="tsd-signature-symbol">: </span><a href="globals.html#scorecontext" class="tsd-signature-type">ScoreContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">push<wbr>Score<span class="tsd-signature-symbol">(</span>previousContext<span class="tsd-signature-symbol">: </span><a href="interfaces/scorecontext.html" class="tsd-signature-type">ScoreContext</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, context<span class="tsd-signature-symbol">: </span><a href="interfaces/scorecontext.html" class="tsd-signature-type">ScoreContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/score/defaultStrategy.ts#L3">score/defaultStrategy.ts:3</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/score/defaultStrategy.ts#L3">score/defaultStrategy.ts:3</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>previousContext: <a href="globals.html#scorecontext" class="tsd-signature-type">ScoreContext</a></h5>
+								<h5>previousContext: <a href="interfaces/scorecontext.html" class="tsd-signature-type">ScoreContext</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
 							</li>
 							<li>
-								<h5>context: <a href="globals.html#scorecontext" class="tsd-signature-type">ScoreContext</a></h5>
+								<h5>context: <a href="interfaces/scorecontext.html" class="tsd-signature-type">ScoreContext</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -1608,13 +1463,13 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 				<a name="sort" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> sort</h3>
 				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">sort<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="globals.html#sortoptions" class="tsd-signature-type">SortOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+					<li class="tsd-signature tsd-kind-icon">sort<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="interfaces/sortoptions.html" class="tsd-signature-type">SortOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/array.ts#L22">array.ts:22</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/array.ts#L22">array.ts:22</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1623,7 +1478,7 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 								<h5>query: <span class="tsd-signature-type">string</span></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="globals.html#sortoptions" class="tsd-signature-type">SortOptions</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="interfaces/sortoptions.html" class="tsd-signature-type">SortOptions</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
@@ -1634,13 +1489,13 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 				<a name="surround" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> surround</h3>
 				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">surround<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><a href="globals.html#surroundoptions" class="tsd-signature-type">SurroundOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					<li class="tsd-signature tsd-kind-icon">surround<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><a href="interfaces/surroundoptions.html" class="tsd-signature-type">SurroundOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/surround.ts#L14">surround.ts:14</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/surround.ts#L14">surround.ts:14</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1649,7 +1504,7 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 								<h5>source: <span class="tsd-signature-type">string</span></h5>
 							</li>
 							<li>
-								<h5>options: <a href="globals.html#surroundoptions" class="tsd-signature-type">SurroundOptions</a></h5>
+								<h5>options: <a href="interfaces/surroundoptions.html" class="tsd-signature-type">SurroundOptions</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -1660,13 +1515,13 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 				<a name="test" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> test</h3>
 				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">test<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, opts<span class="tsd-signature-symbol">?: </span><a href="globals.html#testoptions" class="tsd-signature-type">TestOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					<li class="tsd-signature tsd-kind-icon">test<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, opts<span class="tsd-signature-symbol">?: </span><a href="interfaces/testoptions.html" class="tsd-signature-type">TestOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/test.ts#L7">test.ts:7</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/test.ts#L7">test.ts:7</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1678,7 +1533,7 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 								<h5>source: <span class="tsd-signature-type">string</span></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="globals.html#testoptions" class="tsd-signature-type">TestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="interfaces/testoptions.html" class="tsd-signature-type">TestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -1695,7 +1550,7 @@ sources.sort(fuzzy(<span class="hljs-string">'ssjs'</span>, { sourceAccessor: <s
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/1ccf989/src/utils/toLatin.ts#L1">utils/toLatin.ts:1</a></li>
+								<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/utils/toLatin.ts#L1">utils/toLatin.ts:1</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>

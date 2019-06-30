@@ -1,4 +1,4 @@
-export type PrepareOptions = {
+export interface PrepareOptions {
   caseSensitive?: boolean
 }
 

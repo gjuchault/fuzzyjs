@@ -1,13 +1,13 @@
 import { test, TestOptions } from './test'
 import { match, ScoreStrategy, MatchOptions } from './match'
 
-type Accessor = (source: any) => string
+export type Accessor = (source: any) => string
 
-export type FilterOptions = TestOptions & {
+export interface FilterOptions extends TestOptions {
   sourceAccessor?: Accessor
 }
 
-export type SortOptions = MatchOptions & {
+export interface SortOptions extends MatchOptions {
   sourceAccessor?: Accessor
   idAccessor?: Accessor
 }

@@ -4,7 +4,7 @@ describe('pushScore()', () => {
   describe('given an invalid context', () => {
     it('throws a TypeError', () => {
       expect(() => pushScore(undefined as any, undefined as any)).toThrow(TypeError)
-      expect(() => pushScore(null, null)).toThrow(TypeError)
+      expect(() => pushScore(null, null as any)).toThrow(TypeError)
     })
   })
 

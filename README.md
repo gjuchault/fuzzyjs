@@ -59,7 +59,7 @@ type MatchOptions = TestOptions & {
 type MatchResult = {
   match: boolean
   score?: number
-  ranges?: Array<MatchRange>
+  ranges?: MatchRange[]
 }
 ```
 
@@ -90,7 +90,7 @@ const surround: (source: string, options: SurroundOptions) => string
 
 type SurroundOptions = {
   result: {
-    ranges: Array<MatchRange>
+    ranges: MatchRange[]
   }
   prefix?: string // (default: '')
   suffix?: string // (default: '')

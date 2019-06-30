@@ -1,6 +1,6 @@
 import { prepare } from './utils/prepare'
 
-export type TestOptions = {
+export interface TestOptions {
   caseSensitive?: boolean
 }
 

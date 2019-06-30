@@ -1,6 +1,6 @@
 import { MatchRange } from '../match'
 
-export const pushRange = (ranges: Array<MatchRange>, sourcePos: number): Array<MatchRange> => {
+export const pushRange = (ranges: MatchRange[], sourcePos: number): MatchRange[] => {
   const lastRange = ranges[ranges.length - 1]
 
   if (lastRange && lastRange.stop === sourcePos) {

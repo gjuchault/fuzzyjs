@@ -4,31 +4,31 @@ import { pushRange } from './utils/range'
 import { pushScore } from './score/defaultStrategy'
 import { isLeading } from './utils/isLeading'
 
-export type MatchOptions = TestOptions & {
+export interface MatchOptions extends TestOptions {
   strategy?: ScoreStrategy
   withRanges?: boolean
   withScore?: boolean
 }
 
-export type MatchResult = {
+export interface MatchResult {
   match: boolean
   score?: number
-  ranges?: Array<MatchRange>
+  ranges?: MatchRange[]
 }
 
-export type MatchRange = {
+export interface MatchRange {
   start: number
   stop: number
 }
 
-export type ScoreContext = null | {
+export interface ScoreContext {
   currentScore: number
   character: string
   match: boolean
   leading: boolean
 }
 
-export type ScoreStrategy = (previousContext: ScoreContext, context: ScoreContext) => number
+export type ScoreStrategy = (previousContext: ScoreContext | null, context: ScoreContext) => number
 
 export const match = (
   query: string,
@@ -61,8 +61,8 @@ export const match = (
   let queryPos = 0
   let sourcePos = 0
   let score = 0
-  let lastContext: ScoreContext = null
-  let ranges: Array<MatchRange> = []
+  let lastContext: ScoreContext | null = null
+  let ranges: MatchRange[] = []
 
   // loop on source string
   while (sourcePos < source.length) {
