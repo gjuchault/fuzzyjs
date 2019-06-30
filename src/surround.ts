@@ -37,7 +37,7 @@ export const surround = (source: string, options: SurroundOptions) => {
     return ''
   }
 
-  if (!options.result.ranges || !options.result.ranges.length) {
+  if (!options || !options.result || !options.result.ranges || !options.result.ranges.length) {
     return source
   }
 
