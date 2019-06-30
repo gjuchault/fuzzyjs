@@ -15,6 +15,13 @@ describe('surround()', () => {
     })
   })
 
+  describe('given an invalid result', () => {
+    it('returns the input', () => {
+      expect(surround('foo', null as any)).toBe('foo')
+      expect(surround('foo', { result: null as any })).toBe('foo')
+    })
+  })
+
   describe('given an empty range set', () => {
     it('returns the input', () => {
       expect(surround('foo', { result: {} as any, prefix: '<' })).toBe('foo')
