@@ -922,9 +922,6 @@ img { max-width: 100%; }
 			<a href="matchresult.html" class="tsd-kind-icon">Match<wbr>Result</a>
 		</li>
 		<li class=" tsd-kind-interface">
-			<a href="prepareoptions.html" class="tsd-kind-icon">Prepare<wbr>Options</a>
-		</li>
-		<li class=" tsd-kind-interface">
 			<a href="scorecontext.html" class="tsd-kind-icon">Score<wbr>Context</a>
 		</li>
 		<li class=" tsd-kind-interface">
@@ -955,12 +952,6 @@ img { max-width: 100%; }
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="../globals.html#filter" class="tsd-kind-icon">filter</a>
-		</li>
-		<li class=" tsd-kind-function tsd-is-not-exported">
-			<a href="../globals.html#get" class="tsd-kind-icon">get</a>
-		</li>
-		<li class=" tsd-kind-function tsd-is-not-exported">
-			<a href="../globals.html#insertat" class="tsd-kind-icon">insert<wbr>At</a>
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="../globals.html#isleading" class="tsd-kind-icon">is<wbr>Leading</a>
@@ -993,6 +984,16 @@ img { max-width: 100%; }
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
+		<section class="tsd-panel tsd-comment">
+			<div class="tsd-comment tsd-typography">
+				<div class="lead">
+					<p>This represents the options you can pass to surround.
+						It requires at least <code>result</code> (that you&#39;ll get in <code>match</code> with the
+						<code>withRanges</code> option set to true). You can give a prefix and a suffix, which
+					will surround every part of the source string that matched the query.</p>
+				</div>
+			</div>
+		</section>
 		<section class="tsd-panel tsd-hierarchy">
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
@@ -1024,7 +1025,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/surround.ts#L7">surround.ts:7</a></li>
+						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/surround.ts#L13">surround.ts:13</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1034,7 +1035,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">result<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/surround.ts#L4">surround.ts:4</a></li>
+						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/surround.ts#L10">surround.ts:10</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1052,7 +1053,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">suffix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/surround.ts#L8">surround.ts:8</a></li>
+						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/surround.ts#L14">surround.ts:14</a></li>
 					</ul>
 				</aside>
 			</section>

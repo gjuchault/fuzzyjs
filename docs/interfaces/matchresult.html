@@ -933,9 +933,6 @@ img { max-width: 100%; }
 			</ul>
 		</li>
 		<li class=" tsd-kind-interface">
-			<a href="prepareoptions.html" class="tsd-kind-icon">Prepare<wbr>Options</a>
-		</li>
-		<li class=" tsd-kind-interface">
 			<a href="scorecontext.html" class="tsd-kind-icon">Score<wbr>Context</a>
 		</li>
 		<li class=" tsd-kind-interface">
@@ -955,12 +952,6 @@ img { max-width: 100%; }
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="../globals.html#filter" class="tsd-kind-icon">filter</a>
-		</li>
-		<li class=" tsd-kind-function tsd-is-not-exported">
-			<a href="../globals.html#get" class="tsd-kind-icon">get</a>
-		</li>
-		<li class=" tsd-kind-function tsd-is-not-exported">
-			<a href="../globals.html#insertat" class="tsd-kind-icon">insert<wbr>At</a>
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="../globals.html#isleading" class="tsd-kind-icon">is<wbr>Leading</a>
@@ -993,6 +984,17 @@ img { max-width: 100%; }
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
+		<section class="tsd-panel tsd-comment">
+			<div class="tsd-comment tsd-typography">
+				<div class="lead">
+					<p>This represents match result as returned by the match function. It will
+						always contains a <code>match</code> boolean (which would be equivalent to <code>test</code>
+						function). If you set <code>withRanges</code> to true, match will return a <code>ranges</code>
+						array, and if you set <code>withScore</code> to true, match will return a <code>score</code>
+					number.</p>
+				</div>
+			</div>
+		</section>
 		<section class="tsd-panel tsd-hierarchy">
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
@@ -1024,7 +1026,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">match<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/match.ts#L14">match.ts:14</a></li>
+						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/match.ts#L25">match.ts:25</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1034,7 +1036,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">ranges<span class="tsd-signature-symbol">:</span> <a href="matchrange.html" class="tsd-signature-type">MatchRange</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/match.ts#L16">match.ts:16</a></li>
+						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/match.ts#L27">match.ts:27</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1044,7 +1046,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">score<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/310bd66/src/match.ts#L15">match.ts:15</a></li>
+						<li>Defined in <a href="https://github.com/gjuchault/fuzzyjs/blob/7dfabd9/src/match.ts#L26">match.ts:26</a></li>
 					</ul>
 				</aside>
 			</section>
