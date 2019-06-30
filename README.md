@@ -166,10 +166,9 @@ sources.sort(fuzzy('ssjs', { sourceAccessor: source => source.name.foo, idAccess
 ```ts
 const sort: (query: string, options?: SortOptions) => (leftSource: any, rightSource: any) => 0 | 1 | -1
 
-type SortOptions = TestOptions & {
-  strategy?: ScoreStrategy
-  sourceAccessor?: (source: any) => string // used as an accessor if array is made of objects
-  idAccessor?: (source: any) => string // used as an accessor if you want fuzzy to be memoized
+type SortOptions = MatchOptions & {
+  sourceAccessor?: Accessor // used as an accessor if array is made of objects
+  idAccessor?: Accessor // used as an accessor if you want fuzzy to be memoized
 }
 ```
 
