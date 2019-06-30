@@ -13,7 +13,7 @@ export interface MatchOptions extends TestOptions {
 export interface MatchResult {
   match: boolean
   score?: number
-  ranges?: Array<MatchRange>
+  ranges?: MatchRange[]
 }
 
 export interface MatchRange {
@@ -62,7 +62,7 @@ export const match = (
   let sourcePos = 0
   let score = 0
   let lastContext: ScoreContext | null = null
-  let ranges: Array<MatchRange> = []
+  let ranges: MatchRange[] = []
 
   // loop on source string
   while (sourcePos < source.length) {

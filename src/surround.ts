@@ -2,7 +2,7 @@ import { MatchRange } from './match'
 
 export interface SurroundOptions {
   result: {
-    ranges: Array<MatchRange>
+    ranges: MatchRange[]
   }
   prefix?: string
   suffix?: string
