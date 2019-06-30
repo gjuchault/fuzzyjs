@@ -1,6 +1,6 @@
 import { MatchRange } from './match'
 
-export type SurroundOptions = {
+export interface SurroundOptions {
   result: {
     ranges: Array<MatchRange>
   }

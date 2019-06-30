@@ -1,6 +1,6 @@
 import { ScoreContext } from '../match'
 
-export const pushScore = (previousContext: ScoreContext, context: ScoreContext) => {
+export const pushScore = (previousContext: ScoreContext | null, context: ScoreContext) => {
   if (!context) {
     throw new TypeError('Expecting context to be defined')
   }
