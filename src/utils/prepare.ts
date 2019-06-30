@@ -18,18 +18,12 @@ export const prepare = (query: string, source: string, opts: TestOptions) => {
     throw new TypeError('Expecting source to be a string')
   }
 
-  let reshapedQuery = query
-  let reshapedSource = source
+  let reshapedQuery = query.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  let reshapedSource = source.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 
   if (!opts.caseSensitive) {
-    reshapedQuery = query
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-    reshapedSource = source
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
+    reshapedQuery = reshapedQuery.toLowerCase()
+    reshapedSource = reshapedSource.toLowerCase()
   }
 
   return [reshapedQuery, reshapedSource]
