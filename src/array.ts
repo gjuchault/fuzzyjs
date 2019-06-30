@@ -7,8 +7,7 @@ export type FilterOptions = TestOptions & {
   sourceAccessor?: Accessor
 }
 
-export type SortOptions = TestOptions & {
-  strategy?: ScoreStrategy
+export type SortOptions = MatchOptions & {
   sourceAccessor?: Accessor
   idAccessor?: Accessor
 }
@@ -22,8 +21,7 @@ export const filter = (query: string, options: FilterOptions = {}) => (source: a
 
 export const sort = (query: string, options: SortOptions = {}) => {
   const matchOptions: MatchOptions = {
-    caseSensitive: options.caseSensitive,
-    strategy: options.strategy,
+    ...options,
     withScore: true
   }
 
