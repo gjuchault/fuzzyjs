@@ -7,7 +7,7 @@ notifications:
 node_js:
 - '10'
 - '11'
-- '8'
+- '12'
 script:
 - npm run test:prod && npm run build
 deploy:
