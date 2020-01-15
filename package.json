@@ -110,7 +110,7 @@
     "rollup-plugin-typescript2": "^0.25.3",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.3.0",
-    "typedoc": "^0.15.0",
+    "typedoc": "^0.16.4",
     "typescript": "^3.5.2"
   },
   "dependencies": {},
