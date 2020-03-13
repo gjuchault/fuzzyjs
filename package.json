@@ -97,7 +97,7 @@
     "cz-conventional-changelog": "^3.0.2",
     "husky": "^3.0.4",
     "jest": "^24.9.0",
-    "jest-config": "^24.9.0",
+    "jest-config": "^25.1.0",
     "lint-staged": "^10.0.8",
     "lodash.camelcase": "^4.3.0",
     "prettier": "^1.14.3",
