@@ -87,7 +87,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
-    "@commitlint/config-conventional": "^8.0.0",
+    "@commitlint/config-conventional": "^9.1.1",
     "@types/benchmark": "^1.0.31",
     "@types/jest": "^25.1.4",
     "@types/node": "^13.1.1",
