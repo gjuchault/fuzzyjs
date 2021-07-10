@@ -6,4 +6,6 @@
  * @param str The input string
  * @returns The input string without accents
  */
-export const toLatin = (str: string) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+export function toLatin(str: string): string {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}

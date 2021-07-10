@@ -1,4 +1,4 @@
-import { ScoreContext } from '../match'
+import { ScoreContext } from "../match";
 
 /**
  * Increments a context's score based on the context's values
@@ -8,28 +8,31 @@ import { ScoreContext } from '../match'
  * when matching a leading letter (ie. a letter that is capital or comes
  * after a separator).
  *
- * @param previousContext The last context given to pushScore
+ * @param previousContext The last context given to pushScore. undefined if first match
  * @param context The actual context
  * @returns The new score
  */
-export const pushScore = (previousContext: ScoreContext | null, context: ScoreContext) => {
+export function pushScore(
+  previousContext: ScoreContext | undefined,
+  context: ScoreContext
+): number {
   if (!context) {
-    throw new TypeError('Expecting context to be defined')
+    throw new TypeError("Expecting context to be defined");
   }
 
   if (!context.match) {
-    return context.currentScore - 1
+    return context.currentScore - 1;
   }
 
-  let increment = 0
+  let increment = 0;
 
   if (previousContext && previousContext.match) {
-    increment += 5
+    increment += 5;
   }
 
   if (context.leading) {
-    increment += 10
+    increment += 10;
   }
 
-  return context.currentScore + increment
+  return context.currentScore + increment;
 }

@@ -1,105 +1,76 @@
-import { test, TestOptions } from './test'
-import { match, MatchOptions } from './match'
+import { test, TestOptions } from "./test";
+import { match } from "./match";
 
-/**
- * This represents an accessor as used with `sourceAccessor` and `idAccessor`.
- */
-export type Accessor<T> = (source: T) => string
+export type ItemIterator<TItem> = (source: TItem) => string;
 
-/**
- * This represents filter util options. It is based on [[TestOptions]] (as
- * filter is using test) and extends it with `sourceAccessor` when you filter
- * over an object array.
- */
-export interface FilterOptions<T> extends TestOptions {
-  sourceAccessor?: Accessor<T>
+export interface FilterOptions<TItem> extends TestOptions {
+  iterator: ItemIterator<TItem>;
 }
 
-/**
- * This represents sort util options. It is based on [[MatchOptions]] (as sort
- * is using match) and extends it with `sourceAccessor` when you filter over an
- * object array and `idAccessor` when you want to optimize the sort with
- * memoization.
- */
-export interface SortOptions<T> extends MatchOptions {
-  sourceAccessor?: Accessor<T>
-  idAccessor?: Accessor<T>
+export interface SortOptions<TItem> extends TestOptions {
+  iterator: ItemIterator<TItem>;
 }
 
-/**
- * @ignore
- */
-const get = <T>(source: T, accessor?: Accessor<T>): string => {
-  if (typeof accessor === 'function') return accessor(source)
-  if (typeof source === 'string') return source
-
-  throw new TypeError(`Unexpected array of ${typeof source}. Use an accessor to return a string`)
-}
+type FilterIterator<TItem> = (item: TItem) => boolean;
+type SortIterator<TItem> = (leftItem: TItem, rightItem: TItem) => number;
 
 /**
  * This array helper can be used as an `Array.prototype.filter` callback as it
- * will return true or false when passing it a source string. The only
- * difference with `test` is that you can use it with an object, as long as you
- * give a `sourceAccessor` in options.
- *
- * @param query The input query
- * @param options The options as defined in [[FilterOptions]]
- * @returns A function that you can pass into `Array.prototype.filter`
+ * will return true or false when passing it a source string.
  */
-export const filter = <T>(query: string, options: FilterOptions<T> = {}) => (source: T) =>
-  test(query, get(source, options.sourceAccessor), options)
+export function filter<TItem>(
+  query: string,
+  options: FilterOptions<TItem>
+): FilterIterator<TItem> {
+  return function (item) {
+    const source = options.iterator(item);
+    return test(query, source, options);
+  };
+}
 
 /**
  * This array helper can be used as an `Array.prototype.sort` callback as it
- * will return `-1`/`0`/`1` when passing it two source strings. It is based on
- * match with default options set (`withRanges` to false and `withScore` to
- * true). You can also use `sourceAccessor` if you intend to sort over an array
- * of objects and `idAccessor` to optimize the performances.
- *
- * @param query The input query
- * @param options The options as defined in [[SortOptions]]
- * @returns A function that you can pass into `Array.prototype.sort`
+ * will return `-1`/`0`/`1` when passing it two source strings.
  */
-export const sort = <T>(query: string, options: SortOptions<T> = {}) => {
-  const matchOptions: MatchOptions = {
-    ...options,
-    withRanges: false,
-    withScore: true
-  }
+export function sort<TItem>(
+  query: string,
+  options: SortOptions<TItem>
+): SortIterator<TItem> {
+  const cacheMap: Map<string, number> = new Map();
 
-  if (!options.idAccessor) {
-    return (leftSource: T, rightSource: T) => {
-      const leftScore = match(query, get(leftSource, options.sourceAccessor), matchOptions).score!
-      const rightScore = match(query, get(rightSource, options.sourceAccessor), matchOptions).score!
+  return (leftItem, rightItem) => {
+    const leftSource = options.iterator(leftItem);
+    const rightSource = options.iterator(rightItem);
 
-      if (rightScore === leftScore) return 0
-      return rightScore > leftScore ? 1 : -1
-    }
-  }
+    const cachedLeftMatch = cacheMap.get(leftSource);
+    const cachedRightMatch = cacheMap.get(rightSource);
 
-  const memo: { [key: string]: number } = {}
+    const leftScore = cachedLeftMatch
+      ? cachedLeftMatch
+      : match(query, leftSource, {
+          withScore: true,
+          caseSensitive: options.caseSensitive,
+        }).score;
 
-  return (leftSource: any, rightSource: any) => {
-    const leftId = get(leftSource, options.idAccessor)
-    const rightId = get(rightSource, options.idAccessor)
+    const rightScore = cachedRightMatch
+      ? cachedRightMatch
+      : match(query, rightSource, {
+          withScore: true,
+          caseSensitive: options.caseSensitive,
+        }).score;
 
-    const leftScore: number = memo.hasOwnProperty(leftId)
-      ? memo[leftId]
-      : match(query, get(leftSource, options.sourceAccessor), matchOptions).score!
-
-    const rightScore: number = memo.hasOwnProperty(rightId)
-      ? memo[rightId]
-      : match(query, get(rightSource, options.sourceAccessor), matchOptions).score!
-
-    if (!memo.hasOwnProperty(leftId)) {
-      memo[leftId] = leftScore
+    if (!cacheMap.has(leftSource)) {
+      cacheMap.set(leftSource, leftScore);
     }
 
-    if (!memo.hasOwnProperty(rightId)) {
-      memo[rightId] = rightScore
+    if (!cacheMap.has(rightSource)) {
+      cacheMap.set(rightSource, rightScore);
     }
 
-    if (rightScore === leftScore) return 0
-    return rightScore > leftScore ? 1 : -1
-  }
+    if (rightScore === leftScore) {
+      return 0;
+    }
+
+    return rightScore > leftScore ? 1 : -1;
+  };
 }
