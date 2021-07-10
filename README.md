@@ -2,7 +2,7 @@
 
 ![NPM](https://img.shields.io/npm/l/@gjuchault/typescript-library-starter)
 ![NPM](https://img.shields.io/npm/v/@gjuchault/typescript-library-starter)
-![GitHub Workflow Status](https://github.com/gjuchault/typescript-library-starter/actions/workflows/typescript-library-starter.yml/badge.svg?branch=master)
+![GitHub Workflow Status](https://github.com/gjuchault/typescript-library-starter/actions/workflows/typescript-library-starter.yml/badge.svg?branch=main)
 
 fuzzyjs is a fuzzy search algorithm in javascript.
 
