@@ -1,11 +1,5 @@
-node_modules
-coverage
-.nyc_output
+build/
+node_modules/
+.nyc_output/
+coverage/
 .DS_Store
-*.log
-.vscode
-.idea
-dist
-compiled
-.awcache
-.rpt2_cache

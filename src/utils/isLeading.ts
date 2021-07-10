@@ -1,4 +1,4 @@
-import { toLatin } from './toLatin'
+import { toLatin } from "./toLatin";
 
 /**
  * Returns true when the character is leading; ie. when it's a capital or
@@ -10,16 +10,16 @@ import { toLatin } from './toLatin'
  * @param char The actual character you want to test
  * @returns Wether or not the character is leading
  */
-export const isLeading = (prevChar: string, char: string) => {
+export function isLeading(prevChar: string, char: string): boolean {
   const precededBySeparator =
-    prevChar === '-' ||
-    prevChar === '_' ||
-    prevChar === ' ' ||
-    prevChar === '.' ||
-    prevChar === '/' ||
-    prevChar === '\\'
+    prevChar === "-" ||
+    prevChar === "_" ||
+    prevChar === " " ||
+    prevChar === "." ||
+    prevChar === "/" ||
+    prevChar === "\\";
 
-  const isCharLeading = char.toUpperCase() === char && /\w/.test(toLatin(char))
+  const isCharLeading = char.toUpperCase() === char && /\w/.test(toLatin(char));
 
-  return precededBySeparator || isCharLeading
+  return precededBySeparator || isCharLeading;
 }
