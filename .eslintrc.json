@@ -7,7 +7,12 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": { "project": "./tsconfig.lint.json" },
   "plugins": ["import", "@typescript-eslint"],
-  "ignorePatterns": ["scripts/*", "benchmark/*", "ava.config.js"],
+  "ignorePatterns": [
+    "scripts/*",
+    "benchmark/*",
+    "ava.config.js",
+    "esbuild-hook.js"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:eslint-comments/recommended",
