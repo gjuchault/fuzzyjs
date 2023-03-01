@@ -14,8 +14,8 @@ jobs:
       cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
+      - uses: actions/checkout@v3
+      - uses: volta-cli/action@v3
       - run: yarn --frozen-lockfile
 
       - name: Build
